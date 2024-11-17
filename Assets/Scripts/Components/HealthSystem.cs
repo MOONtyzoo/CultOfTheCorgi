@@ -7,8 +7,8 @@ using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
-    private float health = 100f;
-    [SerializeField] private float maxHealth = 100f;
+    private int health = 100;
+    [SerializeField] private int maxHealth = 100;
 
     [Space]
     public UnityEvent OnHealthChanged;
@@ -16,18 +16,18 @@ public class HealthSystem : MonoBehaviour
     public UnityEvent OnHealedGained;
     public UnityEvent OnHealthDepleted;
 
-    public void Damage(float damageNum) {
+    public void Damage(int damageNum) {
         OnHealthLost.Invoke();
         SetHealth(health - damageNum);
     }
 
-    public void Heal(float healingNum) {
+    public void Heal(int healingNum) {
         OnHealedGained.Invoke();
         SetHealth(health + healingNum);
     }
 
-    public void SetHealth(float newHealth) {
-        newHealth = Mathf.Clamp(newHealth, 0f, maxHealth);
+    public void SetHealth(int newHealth) {
+        newHealth = Mathf.Clamp(newHealth, 0, maxHealth);
         if (health != newHealth) {
             health = newHealth;
             OnHealthChanged.Invoke();
@@ -48,10 +48,10 @@ public class HealthSystem : MonoBehaviour
     }
 
     public float GetHealthPercentage() {
-        return health/maxHealth;
+        return ((float)health)/maxHealth;
     }
 
     public override string ToString() {
-        return health.ToString("#.0") + "/" + maxHealth.ToString("#.0");
+        return health.ToString() + "/" + maxHealth.ToString();
     }
 }
