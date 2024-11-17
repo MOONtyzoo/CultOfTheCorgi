@@ -5,15 +5,16 @@ using UnityEngine;
 public class Corgi : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer CorgiSpriteRenderer;
+    [SerializeField] private Rigidbody rigidBody;
     
     public void Move(Vector2 direction)
     {
         FaceCorrectDirection(direction);
-        float xAmount = direction.x * 7f * Time.deltaTime;
-        float yAmount = direction.y * 7f * Time.deltaTime;
+        float xMovement = direction.x * 7f * Time.deltaTime;
+        float zMovement = direction.y * 7f * Time.deltaTime;
         
-        transform.Translate(xAmount, 0, yAmount);
-        
+        Vector3 newPosition = rigidBody.position + new Vector3(xMovement, 0, zMovement);
+        rigidBody.MovePosition(newPosition);
     }
     
     private void FaceCorrectDirection(Vector2 direction)
