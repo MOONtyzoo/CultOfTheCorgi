@@ -9,8 +9,8 @@ public class Corgi : MonoBehaviour
     public void Move(Vector2 direction)
     {
         FaceCorrectDirection(direction);
-        float xAmount = direction.x * 5f * Time.deltaTime;
-        float yAmount = direction.y * 5f * Time.deltaTime;
+        float xAmount = direction.x * 7f * Time.deltaTime;
+        float yAmount = direction.y * 7f * Time.deltaTime;
         
         transform.Translate(xAmount, 0, yAmount);
         
