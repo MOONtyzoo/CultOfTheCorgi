@@ -45,12 +45,15 @@ public class EntityHealthBar : MonoBehaviour
     }
 
     private void SetHealthPercentage(float newPercentage) {
+        float previousHealthPercentage = healthPercentage;
         healthPercentage = Math.Clamp(newPercentage, 0.0f, 1.0f);
         UpdateBarSprite(healthSprite, healthPercentage);
 
         chippedHealthDecayTimer = chippedHealthDecayTimerMax;
         if (healthPercentage > chippedHealthPercentage) {
             SetChippedHealthPercentage(healthPercentage);
+        } else {
+            SetChippedHealthPercentage(previousHealthPercentage);
         }
     }
 
