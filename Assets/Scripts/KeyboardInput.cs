@@ -4,7 +4,7 @@ public class KeyboardInput : MonoBehaviour
 {
     [SerializeField] private Corgi Corgi;
     
-    void Update()
+    void FixedUpdate()
     {
         if (Input.GetKey(KeyCode.W))
         {

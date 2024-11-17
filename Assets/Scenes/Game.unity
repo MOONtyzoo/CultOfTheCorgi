@@ -2146,6 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CorgiSpriteRenderer: {fileID: 2098230591}
+  rigidBody: {fileID: 2098230594}
 --- !u!54 &2098230594
 Rigidbody:
   m_ObjectHideFlags: 0
