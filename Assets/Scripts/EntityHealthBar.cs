@@ -21,7 +21,7 @@ public class EntityHealthBar : MonoBehaviour
         if (healthSystem == null) {
             Debug.Log("This HealthBar is not reading from any HealthSystem!", this);
         } else {
-            healthSystem.OnHealthLost.AddListener(() => ShowHealthBar());
+            healthSystem.OnDamaged.AddListener(() => ShowHealthBar());
             healthSystem.OnHealthChanged.AddListener(() => SetHealthPercentage(healthSystem.GetHealthPercentage()));
         }
 

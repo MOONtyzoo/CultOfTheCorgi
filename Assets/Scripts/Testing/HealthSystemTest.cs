@@ -8,8 +8,8 @@ public class HealthSystemTest : MonoBehaviour
 
     void Awake() {
         healthSystem = GetComponent<HealthSystem>();
-        healthSystem.OnHealthLost.AddListener(() => OnDamaged());
-        healthSystem.OnHealedGained.AddListener(() => OnHealed());
+        healthSystem.OnDamaged.AddListener(() => OnDamaged());
+        healthSystem.OnHealed.AddListener(() => OnHealed());
         healthSystem.OnHealthChanged.AddListener(() => OnHealthChanged());
         healthSystem.OnHealthDepleted.AddListener(() => OnHealthDepleted());
     }

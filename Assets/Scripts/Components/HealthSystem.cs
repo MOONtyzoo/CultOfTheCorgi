@@ -12,17 +12,17 @@ public class HealthSystem : MonoBehaviour
 
     [Space]
     public UnityEvent OnHealthChanged;
-    public UnityEvent OnHealthLost;
-    public UnityEvent OnHealedGained;
+    public UnityEvent OnDamaged;
+    public UnityEvent OnHealed;
     public UnityEvent OnHealthDepleted;
 
     public void Damage(int damageNum) {
-        OnHealthLost.Invoke();
+        OnDamaged.Invoke();
         SetHealth(health - damageNum);
     }
 
     public void Heal(int healingNum) {
-        OnHealedGained.Invoke();
+        OnHealed.Invoke();
         SetHealth(health + healingNum);
     }
 
