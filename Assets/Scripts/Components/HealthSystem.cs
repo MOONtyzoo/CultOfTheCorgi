@@ -10,6 +10,7 @@ public class HealthSystem : MonoBehaviour
     private float health = 100f;
     [SerializeField] private float maxHealth = 100f;
 
+    [Space]
     public UnityEvent OnHealthChanged;
     public UnityEvent OnHealthLost;
     public UnityEvent OnHealedGained;

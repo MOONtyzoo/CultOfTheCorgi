@@ -12,11 +12,11 @@ public class HealthSystemTest : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
-            healthSystem.Damage(5);
+            healthSystem.Damage(10);
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            healthSystem.Heal(5);
+            healthSystem.Heal(10);
         }
     }
 
