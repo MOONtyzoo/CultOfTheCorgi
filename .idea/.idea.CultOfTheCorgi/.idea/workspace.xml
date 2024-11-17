@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4a9eb240-1046-4a48-be20-1fc7eb70fbe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CultOfTheCorgi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CultOfTheCorgi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Corgi.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Corgi.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,7 @@
       <updated>1731690695879</updated>
       <workItem from="1731690697574" duration="908000" />
       <workItem from="1731717203310" duration="641000" />
-      <workItem from="1731869667581" duration="3194000" />
+      <workItem from="1731869667581" duration="4996000" />
     </task>
     <servers />
   </component>
