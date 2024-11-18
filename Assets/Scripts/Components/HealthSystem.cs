@@ -16,6 +16,10 @@ public class HealthSystem : MonoBehaviour
     public UnityEvent OnHealed;
     public UnityEvent OnHealthDepleted;
 
+    void Awake() {
+        health = maxHealth;
+    }
+
     public void Damage(int damageNum) {
         OnDamaged.Invoke();
         SetHealth(health - damageNum);

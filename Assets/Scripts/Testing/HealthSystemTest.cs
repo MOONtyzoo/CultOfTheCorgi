@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class HealthSystemTest : MonoBehaviour
 {
+    public int damageAmount = 10;
+    public int healAmount = 10;
+
     private HealthSystem healthSystem;
 
     void Awake() {
@@ -16,11 +19,11 @@ public class HealthSystemTest : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
-            healthSystem.Damage(10);
+            healthSystem.Damage(damageAmount);
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            healthSystem.Heal(10);
+            healthSystem.Heal(healAmount);
         }
     }
 
