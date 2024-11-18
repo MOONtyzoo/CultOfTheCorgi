@@ -17,6 +17,8 @@ public class EntityHealthBar : MonoBehaviour
     private float chippedHealthDecayTimerMax = 0.4f;
     private float chippedHealthDecayTimer = 0.0f;
 
+    private float barLeftEdgePosition;
+
     void Awake() {
         if (healthSystem == null) {
             Debug.Log("This HealthBar is not reading from any HealthSystem!", this);
@@ -25,8 +27,10 @@ public class EntityHealthBar : MonoBehaviour
             healthSystem.OnHealthChanged.AddListener(() => SetHealthPercentage(healthSystem.GetHealthPercentage()));
         }
 
-        healthSprite = transform.Find("Bar/HealthSprite").gameObject;
-        chippedHealthSprite = transform.Find("Bar/ChippedHealthSprite").gameObject;
+        healthSprite = transform.Find("HealthSprite").gameObject;
+        chippedHealthSprite = transform.Find("ChippedHealthSprite").gameObject;
+        
+        barLeftEdgePosition = -healthSprite.GetComponent<SpriteRenderer>().size.x/2.0f;
 
         HideHealthBar();
     }
@@ -64,7 +68,7 @@ public class EntityHealthBar : MonoBehaviour
 
     private void UpdateBarSprite(GameObject barSprite, float percentage) {
         Vector3 newLocalPosition = barSprite.transform.localPosition;
-        newLocalPosition.x = Mathf.Lerp(-0.5f, 0.0f, percentage);
+        newLocalPosition.x = Mathf.Lerp(barLeftEdgePosition, 0.0f, percentage);
 
         Vector3 newLocalScale = barSprite.transform.localScale;
         newLocalScale.x = Mathf.Lerp(0.0f, 1.0f, percentage);
