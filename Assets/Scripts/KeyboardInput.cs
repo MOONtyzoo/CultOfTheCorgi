@@ -32,5 +32,9 @@ public class KeyboardInput : MonoBehaviour
             //dodge
         }
         
+        if (!Input.anyKey)
+        {
+            Corgi.SetAnimation("Idle");
+        }
     }
 }

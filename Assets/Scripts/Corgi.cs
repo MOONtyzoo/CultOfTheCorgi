@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Corgi : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer CorgiSpriteRenderer;
     [SerializeField] private Rigidbody rigidBody;
-    
+    [SerializeField] private Animator CorgiAnimator;
+
     public void Move(Vector2 direction)
     {
+        SetAnimation("Running");
+
         FaceCorrectDirection(direction);
         float xMovement = direction.x * 7f * Time.deltaTime;
         float zMovement = direction.y * 7f * Time.deltaTime;
@@ -27,5 +31,14 @@ public class Corgi : MonoBehaviour
         {
             CorgiSpriteRenderer.flipX = true;
         }
+    }
+
+    public void SetAnimation(string animation)
+    {
+
+        if (animation == "Running")
+            CorgiAnimator.Play("CorgiRun");
+        else if (animation == "Idle")
+            CorgiAnimator.Play("CorgiIdle");
     }
 }
