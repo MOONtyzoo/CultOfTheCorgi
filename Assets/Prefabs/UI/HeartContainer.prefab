@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38, y: 38}
+  m_SizeDelta: {x: 45, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7804698574160724406
 MonoBehaviour:
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dde4d5f86c65a94884bf5c48bcb80a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DEBUG_STRING: 
 --- !u!1 &4657481938293305713
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +85,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38, y: 38}
+  m_SizeDelta: {x: 45, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5394016719205534515
 CanvasRenderer:

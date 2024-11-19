@@ -306,7 +306,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 10
+  m_Spacing: 6
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -328,48 +328,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 293113065}
   heartContainerPrefab: {fileID: 7804698574160724406, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
-  heartTextureDictionary:
+  heartSpriteDictionary:
     dictionaryItems:
     - heartState:
         heartType: 0
         containerType: 0
         fillState: 0
-      heartTexture: {fileID: 2800000, guid: 9c563edfa16735e4781bcf37d5dfc584, type: 3}
+      heartSprite: {fileID: 21300000, guid: 9c563edfa16735e4781bcf37d5dfc584, type: 3}
     - heartState:
         heartType: 0
         containerType: 0
         fillState: 1
-      heartTexture: {fileID: 2800000, guid: 10b6a97bb9ecb3a4ca9db22fffe3c7bd, type: 3}
+      heartSprite: {fileID: 21300000, guid: 10b6a97bb9ecb3a4ca9db22fffe3c7bd, type: 3}
     - heartState:
         heartType: 0
         containerType: 0
         fillState: 2
-      heartTexture: {fileID: 2800000, guid: 8ff2b5866c1b67840932751c8392a55f, type: 3}
+      heartSprite: {fileID: 21300000, guid: 8ff2b5866c1b67840932751c8392a55f, type: 3}
     - heartState:
         heartType: 0
         containerType: 1
         fillState: 1
-      heartTexture: {fileID: 2800000, guid: 0b42551bd88089a40a3609fab16d4a43, type: 3}
+      heartSprite: {fileID: 21300000, guid: 0b42551bd88089a40a3609fab16d4a43, type: 3}
     - heartState:
         heartType: 0
         containerType: 1
         fillState: 2
-      heartTexture: {fileID: 2800000, guid: 4649baa7a0bf5d94884750334ff7d7a5, type: 3}
+      heartSprite: {fileID: 21300000, guid: 4649baa7a0bf5d94884750334ff7d7a5, type: 3}
     - heartState:
         heartType: 1
         containerType: 0
         fillState: 0
-      heartTexture: {fileID: 2800000, guid: 1481d95ea465c5746a76b7777c1fcd4e, type: 3}
+      heartSprite: {fileID: 21300000, guid: 1481d95ea465c5746a76b7777c1fcd4e, type: 3}
     - heartState:
         heartType: 1
         containerType: 0
         fillState: 1
-      heartTexture: {fileID: 2800000, guid: ebf6cb425965a584e8b15b0ca4ca1c25, type: 3}
+      heartSprite: {fileID: 21300000, guid: ebf6cb425965a584e8b15b0ca4ca1c25, type: 3}
     - heartState:
         heartType: 1
         containerType: 0
         fillState: 2
-      heartTexture: {fileID: 2800000, guid: 8ff2b5866c1b67840932751c8392a55f, type: 3}
+      heartSprite: {fileID: 21300000, guid: 8ff2b5866c1b67840932751c8392a55f, type: 3}
 --- !u!1001 &364313591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -408,7 +408,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 38
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -607,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 38
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -704,7 +704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 38
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1075,7 +1075,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 38
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5906227788476635155, guid: ad6054899699c8545962d6323a1be7e4, type: 3}
       propertyPath: m_SizeDelta.y
