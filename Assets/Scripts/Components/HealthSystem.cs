@@ -39,15 +39,22 @@ public class HealthSystem : MonoBehaviour
         }
     }
 
+    public void SetMaxHealth(int newMaxHealth) {
+        newMaxHealth = Mathf.Max(newMaxHealth, 0);
+        health = Mathf.Clamp(health, 0, newMaxHealth);
+        maxHealth = newMaxHealth;
+        OnHealthChanged.Invoke();
+    }
+
     public bool IsHealthDepleted() {
         return health == 0;
     }
 
-    public float GetHealth() {
+    public int GetHealth() {
         return health;
     }
 
-    public float GetMaxHealth() {
+    public int GetMaxHealth() {
         return maxHealth;
     }
 

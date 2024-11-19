@@ -153,8 +153,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23ca475e80777de40bddb3f6626fbbee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 10
-  healAmount: 10
+  healthChangeAmount: 20
+  maxHealthChangeAmount: 20
 --- !u!114 &293113065
 MonoBehaviour:
   m_ObjectHideFlags: 0

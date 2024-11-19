@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HealthSystemTest : MonoBehaviour
 {
-    public int damageAmount = 10;
-    public int healAmount = 10;
+    public int healthChangeAmount;
+    public int maxHealthChangeAmount;
 
     private HealthSystem healthSystem;
 
@@ -19,11 +19,19 @@ public class HealthSystemTest : MonoBehaviour
 
     void Update() {
         if (Input.GetKeyDown(KeyCode.Q)) {
-            healthSystem.Damage(damageAmount);
+            healthSystem.Damage(healthChangeAmount);
         }
 
         if (Input.GetKeyDown(KeyCode.E)) {
-            healthSystem.Heal(healAmount);
+            healthSystem.Heal(healthChangeAmount);
+        }
+
+        if (Input.GetKeyDown(KeyCode.I)) {
+            healthSystem.SetMaxHealth(healthSystem.GetMaxHealth() - maxHealthChangeAmount);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P)) {
+            healthSystem.SetMaxHealth(healthSystem.GetMaxHealth() + maxHealthChangeAmount);
         }
     }
 
