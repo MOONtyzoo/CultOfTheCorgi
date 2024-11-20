@@ -22,7 +22,6 @@ public class ParallaxElement : MonoBehaviour
         Vector3 mouseOffset = GetMouseOffsetFromCenter();
         Vector3 transformOffset = new Vector3(mouseOffset.x*sensitivity.x, mouseOffset.y*sensitivity.y, 0.0f);
         Vector3 newPosition = originalPosition - transformOffset;
-        print(newPosition);
         rectTransform.position = newPosition;
     }
 
