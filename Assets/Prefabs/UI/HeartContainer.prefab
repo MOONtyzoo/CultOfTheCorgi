@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5906227788476635155}
   - component: {fileID: 7804698574160724406}
+  - component: {fileID: 7451871750884350489}
   m_Layer: 5
   m_Name: HeartContainer
   m_TagString: Untagged
@@ -49,7 +50,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dde4d5f86c65a94884bf5c48bcb80a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DEBUG_STRING: 
+  DEBUG_ID: 
+--- !u!95 &7451871750884350489
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227618009596842498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0940d296f71ac4f49a15348fcf3422eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4657481938293305713
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +83,6 @@ GameObject:
   - component: {fileID: 1679266800907699960}
   - component: {fileID: 5394016719205534515}
   - component: {fileID: 7229564987321584505}
-  - component: {fileID: 3005512506804385642}
   m_Layer: 5
   m_Name: HeartImage
   m_TagString: Untagged
@@ -126,24 +147,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &3005512506804385642
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4657481938293305713}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0940d296f71ac4f49a15348fcf3422eb, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0

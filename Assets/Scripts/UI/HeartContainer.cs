@@ -8,13 +8,14 @@ using UnityEngine.UI;
 public class HeartContainer : MonoBehaviour
 {
     private Image heartImage;
-    private HeartState heartState;
+    private Animator animator;
+    private State currentState;
     
     [SerializeField, TextArea]
-    private string DEBUG_STRING;
+    private string DEBUG_ID;
 
     [Serializable]
-    public struct HeartState {
+    public struct State {
         public HeartType heartType;
         public ContainerType containerType;
         public FillState fillState;
@@ -26,25 +27,53 @@ public class HeartContainer : MonoBehaviour
     }
 
     public enum ContainerType {
+        Half,
         Whole,
-        Half
     }
 
     public enum FillState {
-        Full,
+        Empty,
         HalfFull,
-        Empty
+        Full,
+    }
+
+    public enum AnimationName {
+        Damage,
+        Heal,
+        Add,
+        Remove
     }
 
     void Awake() {
         heartImage = transform.GetComponentInChildren<Image>();
+        animator = GetComponent<Animator>();
+    }
+
+    public void SetState(State newState) {
+        currentState = newState;
+    } 
+
+    public State GetState() {
+        return currentState;
     }
 
     public void SetID(int ID) {
-        DEBUG_STRING = "ID: " + ID.ToString();
+        DEBUG_ID = "ID: " + ID.ToString();
+    }
+
+    public string GetID() {
+        return DEBUG_ID;
     }
     
     public void SetSprite(Sprite newSprite) {
         heartImage.sprite = newSprite;
+    }
+
+    public void PlayAnimation(AnimationName animation) {
+        animator.Play(animation.ToString(), -1, 0f);
+    }
+
+    public void Destroy() {
+        Destroy(gameObject);
     }
 }
