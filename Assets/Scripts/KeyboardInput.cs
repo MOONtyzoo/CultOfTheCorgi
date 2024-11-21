@@ -6,10 +6,13 @@ public class KeyboardInput : MonoBehaviour
     
     void FixedUpdate()
     {
+
+
         if (Input.GetKey(KeyCode.W))
         {
             Vector2 direction = new Vector2(0, 1);
             Corgi.Move(direction);
+            ActionQueue.Add(ActionTypes.MoveUp);
         }
         if (Input.GetKey(KeyCode.S))
         {

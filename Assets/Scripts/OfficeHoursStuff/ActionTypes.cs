@@ -5,6 +5,7 @@ using UnityEngine;
 public enum ActionTypes
 {
     Idle,
+    MoveUp,
     Attack,
     DodgeLeft,
 }

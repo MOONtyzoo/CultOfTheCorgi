@@ -9,6 +9,21 @@ public class Corgi : MonoBehaviour
     [SerializeField] private Rigidbody rigidBody;
     [SerializeField] private Animator CorgiAnimator;
 
+    private bool isExecutingAction = false;
+
+    public void Update()
+    {
+        if (!isExecutingAction)
+         {
+            if (ActionQueue.IsAvailableAction())
+            {
+                ActionTypes action = ActionQueue.GetNext();
+                isExecutingAction = true;
+                
+            }
+         }
+    }
+
     public void Move(Vector2 direction)
     {
         SetAnimation("Running");
