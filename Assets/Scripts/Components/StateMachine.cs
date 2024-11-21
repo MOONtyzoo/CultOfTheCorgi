@@ -6,37 +6,37 @@ using UnityEngine;
 
 public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
 {
-    [SerializeField] private List<State<T>> _states;
+    [SerializeField] private List<State<T>> States;
 
     [Header("DEBUG")]
     [SerializeField] private bool _debug = true;
 
-    private State<T> _activeState;
+    private State<T> ActiveState;
 
-    private T _parent;
+    private T parent;
 
     protected virtual void Awake()
     {
-        _parent = GetComponent<T>();
+        parent = GetComponent<T>();
     }
 
     protected virtual void Start()
     {
-        if (_states.Count <= 0) return;
+        if (States.Count <= 0) return;
 
-        SetState(_states[0]);
+        SetState(States[0]);
     }
 
     public void SetState(State<T> newStateType)
     {
-        _activeState?.Exit();
-        _activeState = newStateType;
-        _activeState?.Enter(_parent);
+        ActiveState?.Exit();
+        ActiveState = newStateType;
+        ActiveState?.Enter(parent);
     }
 
     public void SetState(Type newStateType)
     {
-        var newState = _states.FirstOrDefault(s => s.GetType() == newStateType);
+        var newState = States.FirstOrDefault(s => s.GetType() == newStateType);
         if (newState)
         {
             SetState(newState);
@@ -45,20 +45,20 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
 
     protected virtual void Update()
     {
-        _activeState?.Tick(Time.deltaTime);
-        _activeState?.ChangeState();
+        ActiveState?.Tick(Time.deltaTime);
+        ActiveState?.ChangeState();
     }
 
     private void FixedUpdate()
     {
-        _activeState?.FixedTick(Time.fixedDeltaTime);
+        ActiveState?.FixedTick(Time.fixedDeltaTime);
     }
 
     private void OnGUI()
     {
         if (!_debug) return;
 
-        var content = _activeState != null ? _activeState.name : "(no active state)";
+        var content = ActiveState != null ? ActiveState.name : "(no active state)";
         GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
     }
 }

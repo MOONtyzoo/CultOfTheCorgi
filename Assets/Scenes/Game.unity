@@ -1391,7 +1391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2098230592}
   - component: {fileID: 2098230591}
-  - component: {fileID: 2098230593}
   - component: {fileID: 2098230595}
   - component: {fileID: 2098230594}
   - component: {fileID: 2098230596}
@@ -1471,18 +1470,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2098230593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098230590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 389a9280782ce4c89b10190a0b70381c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &2098230594
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1564,14 +1551,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7977ee40ed5f35e4e8f7583eb04bbdb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _states:
+  States:
   - {fileID: 11400000, guid: c09161fadbcb619408e41d2a0dd382e3, type: 2}
   - {fileID: 11400000, guid: 65b7d5a9ddc627441bc8525cfb0cba06, type: 2}
   _debug: 1
-  _playerInput: {fileID: 2098230598}
-  CorgiSpriteRenderer: {fileID: 2098230591}
-  CorgiAnimator: {fileID: 2098230596}
-  _rigidbody: {fileID: 2098230594}
+  PlayerInput: {fileID: 2098230598}
+  PlayerSpriteRenderer: {fileID: 2098230591}
+  PlayerAnimator: {fileID: 2098230596}
+  Rigidbody: {fileID: 2098230594}
 --- !u!114 &2098230598
 MonoBehaviour:
   m_ObjectHideFlags: 0

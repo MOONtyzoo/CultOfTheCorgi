@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "States/Player/Idle")]
-public class PlayerIdleState : State<PlayerStateMachine>
+public class PlayerIdleState : State<Player>
 {
-    public override void Enter(PlayerStateMachine parent)
+    public override void Enter(Player parent)
     {
         base.Enter(parent);
-        _runner.SetAnimation("CorgiIdle");
-        _runner.Move(Vector2.zero);
+        RunnerObject.SetAnimation("PlayerIdle");
+        RunnerObject.Move(Vector2.zero);
     }
 
     public override void Tick(float deltaTime)
@@ -22,9 +22,9 @@ public class PlayerIdleState : State<PlayerStateMachine>
 
     public override void ChangeState()
     {
-        if (_runner.Movement.sqrMagnitude != 0)
+        if (RunnerObject.Movement.sqrMagnitude != 0)
         {
-            _runner.SetState(typeof(PlayerMoveState));
+            RunnerObject.SetState(typeof(PlayerMoveState));
         }
     }
 }

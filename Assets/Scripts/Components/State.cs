@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class State<T> : ScriptableObject where T : MonoBehaviour
 {
-    protected T _runner;
+    protected T RunnerObject;
 
     // called whenever we enter this state. Good for setting up variables
     public virtual void Enter(T parent)
     {
-        _runner = parent;
+        RunnerObject = parent;
     }
 
     // similar to Update

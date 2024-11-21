@@ -2,19 +2,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour, CorgiControls.IPlayerActions
+public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
 {
     public event UnityAction<Vector2> MovementEvent = delegate { };
 
-    private CorgiControls _playerActions;
+    private PlayerControls PlayerControls;
 
     private void OnEnable()
     {
-        if (_playerActions == null)
+        if (PlayerControls == null)
         {
-            _playerActions = new CorgiControls();
-            _playerActions.Player.SetCallbacks(this);
-            // _playerActions.UI.SetCallbacks(this);
+            PlayerControls = new PlayerControls();
+            PlayerControls.Player.SetCallbacks(this);
         }
 
         EnableGameplayInput();
@@ -27,15 +26,14 @@ public class PlayerInput : MonoBehaviour, CorgiControls.IPlayerActions
 
     public void DisableAllInput()
     {
-        _playerActions.Player.Disable();
+        PlayerControls.Player.Disable();
     }
 
     public void EnableGameplayInput()
     {
-        if (_playerActions.Player.enabled) return;
+        if (PlayerControls.Player.enabled) return;
 
-        // _playerActions.UI.Disable();
-        _playerActions.Player.Enable();
+        PlayerControls.Player.Enable();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
