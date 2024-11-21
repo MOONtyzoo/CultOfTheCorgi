@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c37496827a2a145bb67e231334fa2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: {x: 0.05, y: 0.01}
+  sensitivity: {x: 0.05, y: 0.03}
 --- !u!1001 &169817906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1093,7 +1093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c37496827a2a145bb67e231334fa2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: {x: 0.07, y: 0}
+  sensitivity: {x: 0.07, y: 0.05}
 --- !u!1 &795872353
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,7 +1240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45c37496827a2a145bb67e231334fa2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: {x: 0.03, y: 0}
+  sensitivity: {x: 0.03, y: 0.03}
 --- !u!224 &953405682 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3182759249191445751, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
