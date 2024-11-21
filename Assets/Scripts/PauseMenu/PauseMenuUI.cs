@@ -32,11 +32,15 @@ public class PauseMenuUI : MonoBehaviour
       pausePanel.alpha = 1;
       pausePanel.interactable = true;
       pausePanel.blocksRaycasts = true;
+
+      Time.timeScale = 0.0f;
    }
    
    private void HidePauseScreen() {
       pausePanel.alpha = 0;
       pausePanel.interactable = false;
       pausePanel.blocksRaycasts = false;
+
+      Time.timeScale = 1.0f;
    }
 }
