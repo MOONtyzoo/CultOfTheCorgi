@@ -325,6 +325,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: Quit Game
       objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6373185726475837379, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_Name
       value: Button - Quit Game
@@ -1739,6 +1751,18 @@ PrefabInstance:
       propertyPath: m_Text
       value: Start Game
       objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6373185726475837379, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_Name
       value: Button - Start Game
@@ -1861,6 +1885,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3182759249191445751, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6373185726475837379, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
