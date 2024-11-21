@@ -1193,7 +1193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696370887}
-  - component: {fileID: 1696370886}
+  - component: {fileID: 1696370888}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -1201,19 +1201,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1696370886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696370885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad9832db13c214c8a81271f9426459f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Corgi: {fileID: 2098230593}
 --- !u!4 &1696370887
 Transform:
   m_ObjectHideFlags: 0
@@ -1229,6 +1216,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1696370888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696370885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e19e3e56fa414d8f4a9cbea851775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1801837907 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3182759249191445751, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
@@ -1388,6 +1387,8 @@ GameObject:
   - component: {fileID: 2098230595}
   - component: {fileID: 2098230594}
   - component: {fileID: 2098230596}
+  - component: {fileID: 2098230598}
+  - component: {fileID: 2098230597}
   m_Layer: 0
   m_Name: Corgi
   m_TagString: Untagged
@@ -1474,9 +1475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389a9280782ce4c89b10190a0b70381c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CorgiSpriteRenderer: {fileID: 2098230591}
-  rigidBody: {fileID: 2098230594}
-  CorgiAnimator: {fileID: 2098230596}
 --- !u!54 &2098230594
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1502,7 +1500,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 32
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!135 &2098230595
 SphereCollider:
@@ -1546,6 +1544,38 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2098230597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098230590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7977ee40ed5f35e4e8f7583eb04bbdb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _states:
+  - {fileID: 11400000, guid: c09161fadbcb619408e41d2a0dd382e3, type: 2}
+  - {fileID: 11400000, guid: 65b7d5a9ddc627441bc8525cfb0cba06, type: 2}
+  _debug: 1
+  _playerInput: {fileID: 2098230598}
+  CorgiSpriteRenderer: {fileID: 2098230591}
+  CorgiAnimator: {fileID: 2098230596}
+  _rigidbody: {fileID: 2098230594}
+--- !u!114 &2098230598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098230590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 865e19e3e56fa414d8f4a9cbea851775, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6622774951813110019
 PrefabInstance:
   m_ObjectHideFlags: 0
