@@ -43,12 +43,8 @@ public class PlayerStateMachine : StateMachine<PlayerStateMachine>
     // just  a simple implementation of movement by setting the velocity of the Rigidbody
     public void Move(Vector2 velocity)
     {
-        float xMovement = velocity.x * Time.deltaTime;
-        float zMovement = velocity.y * 2 * Time.deltaTime;
-
-        Vector3 newPosition = _rigidbody.position + new Vector3(xMovement, 0, zMovement);
-        _rigidbody.MovePosition(newPosition);
-        _rigidbody.velocity = velocity;
+        Vector3 newVelocity = new Vector3(velocity.x, 0, velocity.y);
+        _rigidbody.velocity = newVelocity;
     }
 
     public void SetAnimation(string animation)
