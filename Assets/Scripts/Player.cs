@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : StateMachine<Player>
 {
@@ -13,14 +14,23 @@ public class Player : StateMachine<Player>
     // this Vector2 can be used on each State to determine any change
     public Vector2 Movement { get; private set; }
 
+    public bool RollPressed;
+
     private void OnEnable()
     {
         PlayerInput.MovementEvent += HandleMove;
+        PlayerInput.RollEvent += HandleRoll; // subsribe
     }
 
     private void OnDisable()
     {
         PlayerInput.MovementEvent -= HandleMove;
+        PlayerInput.RollEvent -= HandleRoll; // unsubsribe
+    }
+
+    private void HandleRoll()
+    {
+        RollPressed = true;
     }
 
     private void HandleMove(Vector2 movement)

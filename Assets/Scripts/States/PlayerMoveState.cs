@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [CreateAssetMenu(menuName = "States/Player/Move")]
 public class PlayerMoveState : State<Player>
@@ -17,7 +18,8 @@ public class PlayerMoveState : State<Player>
 
     public override void Tick(float deltaTime)
     {
-        PlayerMovement = RunnerObject.Movement;
+        // we need to normalize the player's input to prevent moving faster diagonally
+        PlayerMovement = new Vector2(RunnerObject.Movement.x, RunnerObject.Movement.y).normalized;
     }
 
     public override void FixedTick(float fixedDeltaTime)
@@ -30,7 +32,13 @@ public class PlayerMoveState : State<Player>
 
     public override void ChangeState()
     {
-        if (PlayerMovement.sqrMagnitude <= .1f)
+        if (RunnerObject.RollPressed)
+        {
+            RunnerObject.SetState(typeof(PlayerRollState));
+            return;
+        }
+
+        if (PlayerMovement == Vector2.zero)
         {
             RunnerObject.SetState(typeof(PlayerIdleState));
         }

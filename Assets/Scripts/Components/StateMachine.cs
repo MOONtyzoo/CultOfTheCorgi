@@ -9,7 +9,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     [SerializeField] private List<State<T>> States;
 
     [Header("DEBUG")]
-    [SerializeField] private bool _debug = true;
+    [SerializeField] private bool Debug = true;
 
     private State<T> ActiveState;
 
@@ -56,7 +56,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
 
     private void OnGUI()
     {
-        if (!_debug) return;
+        if (!Debug) return;
 
         var content = ActiveState != null ? ActiveState.name : "(no active state)";
         GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
