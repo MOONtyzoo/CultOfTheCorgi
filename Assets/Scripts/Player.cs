@@ -41,14 +41,8 @@ public class Player : StateMachine<Player>
     // just  a simple implementation of movement by setting the velocity of the Rigidbody
     public void Move(Vector2 velocity)
     {
-        //CheckFlipSprite(velocity);
-
-        float xMovement = velocity.x * Time.deltaTime;
-        float zMovement = velocity.y * 2 * Time.deltaTime;
-
-        Vector3 newPosition = Rigidbody.position + new Vector3(xMovement, 0, zMovement);
-        Rigidbody.MovePosition(newPosition);
-        Rigidbody.velocity = velocity;
+        Vector3 newVelocity =  new Vector3(velocity.x, 0, velocity.y);
+        Rigidbody.velocity = newVelocity;
     }
 
     public void SetAnimation(string animation)
