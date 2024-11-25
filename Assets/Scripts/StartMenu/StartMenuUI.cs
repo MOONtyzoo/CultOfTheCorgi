@@ -28,6 +28,7 @@ public class StartMenuUI : MonoBehaviour
     void Awake() {
         submenuPanels.Add(Submenu.Main, mainPanel);
         submenuPanels.Add(Submenu.Controls, controlsPanel);
+        Time.timeScale = 1.0f;
 
         SetupButtonClickedEvents();
         SwitchToSubmenu(Submenu.Main);
