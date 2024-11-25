@@ -34,7 +34,7 @@ public class PlayerHealthBar : MonoBehaviour
         } else {
             healthSystem.OnHealthChanged.AddListener(() => UpdateHeartContainers());
         }
-
+        
         UpdateHeartContainers();
     }
 
@@ -88,7 +88,7 @@ public class PlayerHealthBar : MonoBehaviour
     private void UpdateHeartContainerSprites() {
         for (int i = 0; i < heartContainers.Count; i++) {
             HeartContainer heartContainer = heartContainers[i];
-            HeartContainer.State newState = calculateContainerState(i);
+            HeartContainer.State newState = CalculateContainerState(i);
 
             heartContainer.SetSprite(heartSprites[newState]);
             CheckIfShouldPlayAnimations(heartContainer, newState);
@@ -96,7 +96,7 @@ public class PlayerHealthBar : MonoBehaviour
         }
     }
 
-    private HeartContainer.State calculateContainerState(int containerIndex) {
+    private HeartContainer.State CalculateContainerState(int containerIndex) {
         int containerMaxHealth = Mathf.Clamp(healthSystem.GetMaxHealth() - containerIndex*2, 0, 2);
         int containerHealth = Mathf.Clamp(healthSystem.GetHealth() - containerIndex*2, 0, 2);
 
@@ -126,13 +126,11 @@ public class PlayerHealthBar : MonoBehaviour
 
         // Damage animation
         if ((int)newState.fillState < (int)previousState.fillState) {
-            print("Heart " + heartContainer.GetID() + " was damaged");
             heartContainer.PlayAnimation(HeartContainer.AnimationName.Damage);
         }
 
         // Heal animation
         if ((int)newState.fillState > (int)previousState.fillState) {
-            print("Heart " + heartContainer.GetID() + " was healed");
             heartContainer.PlayAnimation(HeartContainer.AnimationName.Heal);
         }
     }
