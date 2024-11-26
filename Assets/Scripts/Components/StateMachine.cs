@@ -46,7 +46,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     protected virtual void Update()
     {
         ActiveState?.Tick(Time.deltaTime);
-        ActiveState?.ChangeState();
+        ActiveState?.HandleStateTransitions();
     }
 
     private void FixedUpdate()
@@ -59,9 +59,6 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         if (!Debug) return;
 
         var content = ActiveState != null ? ActiveState.name : "(no active state)";
-        GUILayout.BeginVertical();
-        GUILayout.FlexibleSpace();
         GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
-        GUILayout.EndVertical();
     }
 }

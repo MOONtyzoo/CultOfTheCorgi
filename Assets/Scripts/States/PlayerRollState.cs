@@ -54,7 +54,7 @@ public class PlayerRollState : State<Player>
         RunnerObject.Move(MovementDirection * (ElapsedTime / RollTime));
     }
 
-    public override void ChangeState()
+    public override void HandleStateTransitions()
     {
         // only change if the "cooldown" timer is reached
         if (ElapsedTime >= RollTime)

@@ -20,7 +20,7 @@ public class PlayerIdleState : State<Player>
     {
     }
 
-    public override void ChangeState()
+    public override void HandleStateTransitions()
     {
         if (RunnerObject.Movement.sqrMagnitude != 0)
         {

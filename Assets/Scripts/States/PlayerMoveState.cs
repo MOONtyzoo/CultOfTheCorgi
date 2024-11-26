@@ -30,7 +30,7 @@ public class PlayerMoveState : State<Player>
         RunnerObject.Move(PlayerMovement * (Speed * speedMultiplier * fixedDeltaTime));
     }
 
-    public override void ChangeState()
+    public override void HandleStateTransitions()
     {
         if (RunnerObject.RollPressed)
         {

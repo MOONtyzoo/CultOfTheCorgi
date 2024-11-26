@@ -19,7 +19,7 @@ public abstract class State<T> : ScriptableObject where T : MonoBehaviour
     public abstract void FixedTick(float fixedDeltaTime);
 
     // here we put the conditions to change to another state if needed
-    public abstract void ChangeState();
+    public abstract void HandleStateTransitions();
 
     public virtual void Exit()
     {

@@ -1816,7 +1816,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1696370887}
-  - component: {fileID: 1696370888}
   m_Layer: 0
   m_Name: Movement
   m_TagString: Untagged
@@ -1839,18 +1838,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1696370888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696370885}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865e19e3e56fa414d8f4a9cbea851775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1801837907 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3182759249191445751, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
@@ -2302,9 +2289,9 @@ GameObject:
   - component: {fileID: 2098230594}
   - component: {fileID: 2098230596}
   - component: {fileID: 2098230600}
-  - component: {fileID: 2098230598}
   - component: {fileID: 2098230597}
   - component: {fileID: 2098230599}
+  - component: {fileID: 2098230595}
   m_Layer: 0
   m_Name: Corgi
   m_TagString: Untagged
@@ -2465,23 +2452,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 65b7d5a9ddc627441bc8525cfb0cba06, type: 2}
   - {fileID: 11400000, guid: b2560277b1c70ea4fa3b0909327369c6, type: 2}
   Debug: 1
-  PlayerInput: {fileID: 2098230598}
+  input: {fileID: 11400000, guid: d675c48a943c5a54e9c2447130e0ce4c, type: 2}
   PlayerSpriteRenderer: {fileID: 2098230591}
   PlayerAnimator: {fileID: 2098230596}
   Rigidbody: {fileID: 2098230594}
   RollPressed: 0
---- !u!114 &2098230598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2098230590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 865e19e3e56fa414d8f4a9cbea851775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &2098230599
 CapsuleCollider:
   m_ObjectHideFlags: 0
