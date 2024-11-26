@@ -10,7 +10,7 @@ public class PlayerHealthBar : MonoBehaviour
     private List<HeartContainer> heartContainers = new List<HeartContainer>();
 
     [SerializeField] private HeartSpriteDictionary heartSpriteDictionary;
-    private Dictionary<HeartContainer.HeartState, Sprite> heartSprites = new Dictionary<HeartContainer.HeartState, Sprite>();
+    private Dictionary<HeartContainer.State, Sprite> heartSprites = new Dictionary<HeartContainer.State, Sprite>();
 
     // These two structs below are just to tell Unity how to format data in the inspector
     [Serializable]
@@ -21,7 +21,7 @@ public class PlayerHealthBar : MonoBehaviour
 
     [Serializable]
     public struct HeartSpriteDictionaryItem {
-        public HeartContainer.HeartState heartState;
+        public HeartContainer.State heartState;
         public Sprite heartSprite;
     }
     
@@ -34,7 +34,7 @@ public class PlayerHealthBar : MonoBehaviour
         } else {
             healthSystem.OnHealthChanged.AddListener(() => UpdateHeartContainers());
         }
-
+        
         UpdateHeartContainers();
     }
 
@@ -69,6 +69,7 @@ public class PlayerHealthBar : MonoBehaviour
     private void AddHeartContainer() {
         HeartContainer newHeartContainer = Instantiate(heartContainerPrefab, gameObject.transform);
         newHeartContainer.SetID(heartContainers.Count);
+        newHeartContainer.PlayAnimation(HeartContainer.AnimationName.Add);
         heartContainers.Add(newHeartContainer);
     }
 
@@ -80,30 +81,33 @@ public class PlayerHealthBar : MonoBehaviour
 
     private void RemoveHeartContainer() {
         HeartContainer lastHeartContainer = heartContainers[heartContainers.Count-1];
-        Destroy(lastHeartContainer.gameObject);
+        lastHeartContainer.PlayAnimation(HeartContainer.AnimationName.Remove); // This calls gameobject destroy when done
         heartContainers.Remove(lastHeartContainer);
     }
 
     private void UpdateHeartContainerSprites() {
         for (int i = 0; i < heartContainers.Count; i++) {
             HeartContainer heartContainer = heartContainers[i];
-            Sprite sprite = calculateHeartContainerSprite(i);
-            heartContainer.SetSprite(sprite);
+            HeartContainer.State newState = CalculateContainerState(i);
+
+            heartContainer.SetSprite(heartSprites[newState]);
+            CheckIfShouldPlayAnimations(heartContainer, newState);
+            heartContainer.SetState(newState);
         }
     }
 
-    private Sprite calculateHeartContainerSprite(int containerIndex) {
+    private HeartContainer.State CalculateContainerState(int containerIndex) {
         int containerMaxHealth = Mathf.Clamp(healthSystem.GetMaxHealth() - containerIndex*2, 0, 2);
         int containerHealth = Mathf.Clamp(healthSystem.GetHealth() - containerIndex*2, 0, 2);
 
-        HeartContainer.HeartState heartState;
+        HeartContainer.State heartState;
         // defaults
         heartState.heartType = HeartContainer.HeartType.Red;
         heartState.containerType = HeartContainer.ContainerType.Whole;
         heartState.fillState = HeartContainer.FillState.Full;
 
         switch(containerMaxHealth) {
-            case 0: Debug.Log("This heart container should not exist"); return null;
+            case 0: Debug.Log("This heart container should not exist"); break;
             case 1: heartState.containerType = HeartContainer.ContainerType.Half; break;
             case 2: heartState.containerType = HeartContainer.ContainerType.Whole; break;
         }
@@ -114,6 +118,20 @@ public class PlayerHealthBar : MonoBehaviour
             case 2: heartState.fillState = HeartContainer.FillState.Full; break;
         }
 
-        return heartSprites[heartState];
+        return heartState;
+    }
+
+    private void CheckIfShouldPlayAnimations(HeartContainer heartContainer, HeartContainer.State newState) {
+        HeartContainer.State previousState = heartContainer.GetState();
+
+        // Damage animation
+        if ((int)newState.fillState < (int)previousState.fillState) {
+            heartContainer.PlayAnimation(HeartContainer.AnimationName.Damage);
+        }
+
+        // Heal animation
+        if ((int)newState.fillState > (int)previousState.fillState) {
+            heartContainer.PlayAnimation(HeartContainer.AnimationName.Heal);
+        }
     }
 }
