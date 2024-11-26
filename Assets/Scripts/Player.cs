@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : StateMachine<Player>
 {
-    [SerializeField] private PlayerInput PlayerInput;
+    [SerializeField] private InputReader input;
     // this is the Transform we want to rotate on the Y axis when changing directions
     [SerializeField] private SpriteRenderer PlayerSpriteRenderer;
     [SerializeField] private Animator PlayerAnimator;
@@ -18,14 +18,14 @@ public class Player : StateMachine<Player>
 
     private void OnEnable()
     {
-        PlayerInput.MovementEvent += HandleMove;
-        PlayerInput.RollEvent += HandleRoll; // subsribe
+        input.MovementEvent += HandleMove;
+        input.RollEvent += HandleRoll; // subsribe
     }
 
     private void OnDisable()
     {
-        PlayerInput.MovementEvent -= HandleMove;
-        PlayerInput.RollEvent -= HandleRoll; // unsubsribe
+        input.MovementEvent -= HandleMove;
+        input.RollEvent -= HandleRoll; // unsubsribe
     }
 
     private void HandleRoll()

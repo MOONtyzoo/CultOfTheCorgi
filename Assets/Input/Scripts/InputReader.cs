@@ -2,19 +2,21 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
+[CreateAssetMenu(fileName ="InputReader", menuName ="Input/InputReader")]
+public class InputReader : ScriptableObject, GameInput.IPlayerActions
 {
     public event UnityAction<Vector2> MovementEvent = delegate { };
     public event UnityAction RollEvent = delegate { };
 
-    private PlayerControls PlayerControls;
+    private GameInput GameInput;
 
     private void OnEnable()
     {
-        if (PlayerControls == null)
+        if (GameInput == null)
         {
-            PlayerControls = new PlayerControls();
-            PlayerControls.Player.SetCallbacks(this);
+            GameInput = new GameInput();
+
+            GameInput.Player.SetCallbacks(this);
         }
 
         EnableGameplayInput();
@@ -27,14 +29,14 @@ public class PlayerInput : MonoBehaviour, PlayerControls.IPlayerActions
 
     public void DisableAllInput()
     {
-        PlayerControls.Player.Disable();
+        GameInput.Player.Disable();
     }
 
     public void EnableGameplayInput()
     {
-        if (PlayerControls.Player.enabled) return;
+        if (GameInput.Player.enabled) return;
 
-        PlayerControls.Player.Enable();
+        GameInput.Player.Enable();
     }
 
     public void OnMovement(InputAction.CallbackContext context)
