@@ -49,9 +49,10 @@ public class Player : StateMachine<Player>
     }
 
     // just  a simple implementation of movement by setting the velocity of the Rigidbody
-    public void Move(Vector2 velocity)
+    public void SetVelocity(Vector2 velocity)
     {
         Vector3 newVelocity =  new Vector3(velocity.x, 0, velocity.y);
+        print(newVelocity);
         Rigidbody.velocity = newVelocity;
     }
 

@@ -24,10 +24,7 @@ public class PlayerMoveState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        // we need a multiplier since we don't want the _speed to be seen like a big
-        // number in the inspector. We can also do [SerializeField, Range(250f, 500f)]
-        var speedMultiplier = 10;
-        RunnerObject.Move(PlayerMovement * (Speed * speedMultiplier * fixedDeltaTime));
+        RunnerObject.SetVelocity(PlayerMovement * Speed);
     }
 
     public override void HandleStateTransitions()

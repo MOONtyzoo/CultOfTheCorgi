@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
+using UnityEngine.InputSystem.Interactions;
 
 [CreateAssetMenu(menuName = "States/Player/Roll")]
 public class PlayerRollState : State<Player>
 {
-    [SerializeField] private float RollSpeed = 50f;
+    [SerializeField, Range(0f, 50f)] private float RollSpeed = 50f;
     [SerializeField] private float RollTime = .5f;
 
     [Header("DEBUG")]
@@ -19,23 +21,20 @@ public class PlayerRollState : State<Player>
         base.Enter(parent);
 
         // grab the direction were the player is aiming in a 3D plane
-        var playerInput = new Vector3(parent.Movement.normalized.x, parent.Movement.normalized.y);
+        Vector2 playerInput = parent.Movement.normalized;
 
         // instantly set this to false so there's no double rolling
         parent.RollPressed = false;
-
         ElapsedTime = 0f;
-
-        var startingPos = parent.transform.position;
-
-        // calculate the desired end position
-        MovementDirection = startingPos + playerInput * RollSpeed;
+        MovementDirection = playerInput * RollSpeed;
 
         if (!Debug) return;
-
+        Vector3 startingPos = parent.transform.position;
+        float distanceTraveled = RollSpeed * RollTime;
+        Vector3 endingPos = startingPos + distanceTraveled * new Vector3(playerInput.x, 0, playerInput.y);
         UnityEngine.Debug.DrawLine(
             startingPos,
-            MovementDirection,
+            endingPos,
             Color.red,
             .2f
         );
@@ -48,10 +47,7 @@ public class PlayerRollState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        if (!(ElapsedTime < RollTime)) return;
-
-        // each fixed frame we move a fraction towards the end value
-        RunnerObject.Move(MovementDirection * (ElapsedTime / RollTime));
+        RunnerObject.SetVelocity(MovementDirection);
     }
 
     public override void HandleStateTransitions()

@@ -9,7 +9,7 @@ public class PlayerIdleState : State<Player>
     {
         base.Enter(parent);
         RunnerObject.SetAnimation("PlayerIdle");
-        RunnerObject.Move(Vector2.zero);
+        RunnerObject.SetVelocity(Vector2.zero);
     }
 
     public override void Tick(float deltaTime)
