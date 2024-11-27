@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -5,8 +6,8 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(fileName ="InputReader", menuName ="Input/InputReader")]
 public class InputReader : ScriptableObject, GameInput.IPlayerActions
 {
-    public event UnityAction<Vector2> MovementEvent = delegate { };
-    public event UnityAction RollEvent = delegate { };
+    public event Action<Vector2> MovementEvent;
+    public event Action RollEvent;
 
     private GameInput GameInput;
 
@@ -46,9 +47,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions
     
     public void OnRoll(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
+        if (context.phase == InputActionPhase.Performed)
             RollEvent?.Invoke();
-        }
     }
 }

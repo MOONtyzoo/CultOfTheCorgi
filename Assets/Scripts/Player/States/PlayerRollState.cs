@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.InputSystem.Interactions;
 
-[CreateAssetMenu(menuName = "States/Player/Roll")]
 public class PlayerRollState : State<Player>
 {
     [Header("DEBUG")]
@@ -17,12 +16,15 @@ public class PlayerRollState : State<Player>
     {
         base.Enter(parent);
 
-        parent.RollPressed = false; // instantly set this to false so there's no double rolling
         elapsedTime = 0f;
-        rollDirection = parent.Movement.normalized;
+        rollDirection = parent.movementInput;
 
         if (!debug) return;
-        Vector3 startingPos = parent.transform.position;
+        DrawDebugLine();
+    }
+
+    public void DrawDebugLine() {
+        Vector3 startingPos = RunnerObject.transform.position;
         float distanceTraveled = RunnerObject.playerData.rollSpeed * RunnerObject.playerData.rollDuration;
         Vector3 endingPos = startingPos + distanceTraveled * new Vector3(rollDirection.x, 0, rollDirection.y);
         UnityEngine.Debug.DrawLine(
@@ -40,6 +42,7 @@ public class PlayerRollState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
+        RunnerObject.rollPressed = false;
         RunnerObject.SetVelocity(rollDirection*RunnerObject.playerData.rollSpeed);
     }
 

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "States/Player/Idle")]
 public class PlayerIdleState : State<Player>
 {
     public override void Enter(Player parent)
@@ -18,11 +17,12 @@ public class PlayerIdleState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
+        RunnerObject.rollPressed = false;
     }
 
     public override void HandleStateTransitions()
     {
-        if (RunnerObject.Movement.sqrMagnitude != 0)
+        if (RunnerObject.movementInput.sqrMagnitude != 0)
         {
             RunnerObject.SetState(typeof(PlayerMoveState));
         }

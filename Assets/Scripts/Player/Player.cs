@@ -8,13 +8,20 @@ public class Player : StateMachine<Player>
     [SerializeField] public PlayerData playerData;
     [SerializeField] private InputReader input;
 
-    [SerializeField] private SpriteRenderer PlayerSpriteRenderer;
-    [SerializeField] private Animator PlayerAnimator;
-    [SerializeField] private Rigidbody Rigidbody;
+    private SpriteRenderer spriteRenderer;
+    private Animator animator;
+    private new Rigidbody rigidbody;
 
     // These variables are meant to propograte input to the states
-    public Vector2 Movement { get; private set; }
-    public bool RollPressed;
+    [HideInInspector] public Vector2 movementInput;
+    [HideInInspector] public bool rollPressed;
+
+    protected override void Awake() {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        rigidbody = GetComponent<Rigidbody>();
+        base.Awake();
+    }
 
     protected override void Start()
     {
@@ -41,33 +48,33 @@ public class Player : StateMachine<Player>
 
     private void HandleRoll()
     {
-        RollPressed = true;
+        rollPressed = true;
     }
 
     private void HandleMove(Vector2 movement)
     {
-        Movement = movement;
+        this.movementInput = movement;
         CheckFlipSprite(movement);
     }
 
     private void CheckFlipSprite(Vector2 velocity)
     {
-        bool IsFacingRight = !PlayerSpriteRenderer.flipX;
+        bool IsFacingRight = !spriteRenderer.flipX;
 
         if ((!(velocity.x > 0f) || IsFacingRight) && (!(velocity.x < 0f) || !IsFacingRight)) return;
 
-        PlayerSpriteRenderer.flipX = !PlayerSpriteRenderer.flipX;
+        spriteRenderer.flipX = !spriteRenderer.flipX;
     }
 
     public void SetVelocity(Vector2 velocity)
     {
         Vector3 newVelocity =  new Vector3(velocity.x, 0, velocity.y);
-        Rigidbody.velocity = newVelocity;
+        rigidbody.velocity = newVelocity;
     }
 
     public void SetAnimation(string animation)
     {
-        PlayerAnimator.Play(animation);
+        animator.Play(animation);
     }
 
 }
