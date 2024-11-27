@@ -6,26 +6,24 @@ using UnityEngine.InputSystem;
 public class Player : StateMachine<Player>
 {
     [SerializeField] private InputReader input;
-    // this is the Transform we want to rotate on the Y axis when changing directions
     [SerializeField] private SpriteRenderer PlayerSpriteRenderer;
     [SerializeField] private Animator PlayerAnimator;
     [SerializeField] private Rigidbody Rigidbody;
 
-    // this Vector2 can be used on each State to determine any change
+    // These variables are meant to propograte input to the states
     public Vector2 Movement { get; private set; }
-
     public bool RollPressed;
 
     private void OnEnable()
     {
         input.MovementEvent += HandleMove;
-        input.RollEvent += HandleRoll; // subsribe
+        input.RollEvent += HandleRoll;
     }
 
     private void OnDisable()
     {
         input.MovementEvent -= HandleMove;
-        input.RollEvent -= HandleRoll; // unsubsribe
+        input.RollEvent -= HandleRoll;
     }
 
     private void HandleRoll()
@@ -48,11 +46,9 @@ public class Player : StateMachine<Player>
         PlayerSpriteRenderer.flipX = !PlayerSpriteRenderer.flipX;
     }
 
-    // just  a simple implementation of movement by setting the velocity of the Rigidbody
     public void SetVelocity(Vector2 velocity)
     {
         Vector3 newVelocity =  new Vector3(velocity.x, 0, velocity.y);
-        print(newVelocity);
         Rigidbody.velocity = newVelocity;
     }
 
