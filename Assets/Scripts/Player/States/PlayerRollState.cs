@@ -13,7 +13,7 @@ public class PlayerRollState : State<Player>
     [Header("DEBUG")]
     [SerializeField] private bool Debug = true;
 
-    private Vector2 MovementDirection;
+    private Vector2 rollVelocity;
     private float ElapsedTime;
 
     public override void Enter(Player parent)
@@ -26,7 +26,7 @@ public class PlayerRollState : State<Player>
         // instantly set this to false so there's no double rolling
         parent.RollPressed = false;
         ElapsedTime = 0f;
-        MovementDirection = playerInput * RollSpeed;
+        rollVelocity = playerInput * RollSpeed;
 
         if (!Debug) return;
         Vector3 startingPos = parent.transform.position;
@@ -47,7 +47,7 @@ public class PlayerRollState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        RunnerObject.SetVelocity(MovementDirection);
+        RunnerObject.SetVelocity(rollVelocity);
     }
 
     public override void HandleStateTransitions()
