@@ -14,21 +14,12 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     private State<T> ActiveState;
 
     private T parent;
-
-    protected virtual void Awake()
-    {
-        parent = GetComponent<T>();
-    }
-
-    protected virtual void Start()
-    {
-        if (States.Count <= 0) return;
-
-        SetState(States[0]);
-    }
-
+    
     protected void InitializeStateMachine(List<State<T>> States) {
+        parent = GetComponent<T>();
         this.States = States;
+        if (States.Count <= 0) return;
+        SetState(States[0]);
     }
 
     public void SetState(State<T> newStateType)

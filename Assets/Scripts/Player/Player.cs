@@ -12,26 +12,21 @@ public class Player : StateMachine<Player>
     private Animator animator;
     private new Rigidbody rigidbody;
 
-    // These variables are meant to propograte input to the states
+    // These variables are meant to propagate input to the states
     [HideInInspector] public Vector2 movementInput;
     [HideInInspector] public bool rollPressed;
 
-    protected override void Awake() {
+    void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
-        base.Awake();
-    }
 
-    protected override void Start()
-    {
         List<State<Player>> playerStates = new List<State<Player>>() {
             new PlayerIdleState(),
             new PlayerMoveState(),
             new PlayerRollState(),
         };
         InitializeStateMachine(playerStates);
-        base.Start();
     }
 
     private void OnEnable()
@@ -53,7 +48,7 @@ public class Player : StateMachine<Player>
 
     private void HandleMove(Vector2 movement)
     {
-        this.movementInput = movement;
+        movementInput = movement;
         CheckFlipSprite(movement);
     }
 
