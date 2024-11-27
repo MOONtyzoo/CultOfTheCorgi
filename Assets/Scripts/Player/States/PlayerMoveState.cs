@@ -6,8 +6,6 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "States/Player/Move")]
 public class PlayerMoveState : State<Player>
 {
-    [SerializeField, Range(0f, 50f)] private float Speed = 25f;
-
     private Vector2 PlayerMovement;
 
     public override void Enter(Player parent)
@@ -24,7 +22,7 @@ public class PlayerMoveState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        RunnerObject.SetVelocity(PlayerMovement * Speed);
+        RunnerObject.SetVelocity(PlayerMovement * RunnerObject.playerData.movementSpeed);
     }
 
     public override void HandleStateTransitions()

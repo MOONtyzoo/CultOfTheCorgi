@@ -5,7 +5,9 @@ using UnityEngine.InputSystem;
 
 public class Player : StateMachine<Player>
 {
+    [SerializeField] public PlayerData playerData;
     [SerializeField] private InputReader input;
+
     [SerializeField] private SpriteRenderer PlayerSpriteRenderer;
     [SerializeField] private Animator PlayerAnimator;
     [SerializeField] private Rigidbody Rigidbody;

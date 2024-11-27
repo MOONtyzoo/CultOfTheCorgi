@@ -7,9 +7,6 @@ using UnityEngine.InputSystem.Interactions;
 [CreateAssetMenu(menuName = "States/Player/Roll")]
 public class PlayerRollState : State<Player>
 {
-    [SerializeField, Range(0f, 50f)] private float rollSpeed = 50f;
-    [SerializeField] private float rollTime = .5f;
-
     [Header("DEBUG")]
     [SerializeField] private bool debug = true;
 
@@ -26,7 +23,7 @@ public class PlayerRollState : State<Player>
 
         if (!debug) return;
         Vector3 startingPos = parent.transform.position;
-        float distanceTraveled = rollSpeed * rollTime;
+        float distanceTraveled = RunnerObject.playerData.rollSpeed * RunnerObject.playerData.rollDuration;
         Vector3 endingPos = startingPos + distanceTraveled * new Vector3(rollDirection.x, 0, rollDirection.y);
         UnityEngine.Debug.DrawLine(
             startingPos,
@@ -43,13 +40,13 @@ public class PlayerRollState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        RunnerObject.SetVelocity(rollDirection*rollSpeed);
+        RunnerObject.SetVelocity(rollDirection*RunnerObject.playerData.rollSpeed);
     }
 
     public override void HandleStateTransitions()
     {
         // only change if the "cooldown" timer is reached
-        if (elapsedTime >= rollTime)
+        if (elapsedTime >= RunnerObject.playerData.rollDuration)
         {
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
