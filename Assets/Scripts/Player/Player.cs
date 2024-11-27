@@ -14,6 +14,17 @@ public class Player : StateMachine<Player>
     public Vector2 Movement { get; private set; }
     public bool RollPressed;
 
+    protected override void Start()
+    {
+        List<State<Player>> playerStates = new List<State<Player>>() {
+            new PlayerIdleState(),
+            new PlayerMoveState(),
+            new PlayerRollState(),
+        };
+        InitializeStateMachine(playerStates);
+        base.Start();
+    }
+
     private void OnEnable()
     {
         input.MovementEvent += HandleMove;

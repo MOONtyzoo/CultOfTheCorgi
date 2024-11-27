@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class State<T> : ScriptableObject where T : MonoBehaviour
+public abstract class State<T> where T : MonoBehaviour
 {
     protected T RunnerObject;
 

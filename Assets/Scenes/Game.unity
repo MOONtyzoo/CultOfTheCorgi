@@ -603,7 +603,7 @@ Transform:
   m_GameObject: {fileID: 392963779}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 979.3461, y: 170.3241, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1704,7 +1704,7 @@ Transform:
   m_GameObject: {fileID: 1510453918}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.14482288, y: 0.33548358, z: 0.30664742}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1807,37 +1807,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &1696370885
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1696370887}
-  m_Layer: 0
-  m_Name: Movement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1696370887
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1696370885}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 200, y: 540, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1801837907 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3182759249191445751, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
@@ -2293,7 +2262,7 @@ GameObject:
   - component: {fileID: 2098230599}
   - component: {fileID: 2098230595}
   m_Layer: 0
-  m_Name: Corgi
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2447,10 +2416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7977ee40ed5f35e4e8f7583eb04bbdb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  States:
-  - {fileID: 11400000, guid: c09161fadbcb619408e41d2a0dd382e3, type: 2}
-  - {fileID: 11400000, guid: 65b7d5a9ddc627441bc8525cfb0cba06, type: 2}
-  - {fileID: 11400000, guid: b2560277b1c70ea4fa3b0909327369c6, type: 2}
   Debug: 1
   input: {fileID: 11400000, guid: d675c48a943c5a54e9c2447130e0ce4c, type: 2}
   PlayerSpriteRenderer: {fileID: 2098230591}
@@ -2513,7 +2478,6 @@ SceneRoots:
   - {fileID: 196920719}
   - {fileID: 1063057514}
   - {fileID: 2098230592}
-  - {fileID: 1696370887}
   - {fileID: 618542708}
   - {fileID: 545812865}
   - {fileID: 1510453919}

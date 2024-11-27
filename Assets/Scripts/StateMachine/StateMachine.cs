@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
 {
-    [SerializeField] private List<State<T>> States;
+    private List<State<T>> States;
 
     [Header("DEBUG")]
     [SerializeField] private bool Debug = true;
@@ -27,6 +27,10 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         SetState(States[0]);
     }
 
+    protected void InitializeStateMachine(List<State<T>> States) {
+        this.States = States;
+    }
+
     public void SetState(State<T> newStateType)
     {
         ActiveState?.Exit();
@@ -36,8 +40,8 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
 
     public void SetState(Type newStateType)
     {
-        var newState = States.FirstOrDefault(s => s.GetType() == newStateType);
-        if (newState)
+        State<T> newState = States.FirstOrDefault(s => s.GetType() == newStateType);
+        if (newState != null)
         {
             SetState(newState);
         }
@@ -58,7 +62,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     {
         if (!Debug) return;
 
-        var content = ActiveState != null ? ActiveState.name : "(no active state)";
+        var content = ActiveState != null ? nameof(ActiveState) : "(no active state)";
         GUILayout.Label($"<color='black'><size=40>{content}</size></color>");
     }
 }
