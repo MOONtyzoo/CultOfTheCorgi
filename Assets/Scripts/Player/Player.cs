@@ -14,7 +14,7 @@ public class Player : StateMachine<Player>
 
     // These variables are meant to propagate input to the states
     [HideInInspector] public Vector2 movementInput;
-    [HideInInspector] public bool rollPressed;
+    [HideInInspector] public bool rollInputDown; // Follows convention of Input.GetKeyDown: Only true on first frame of input.
 
     void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -41,9 +41,15 @@ public class Player : StateMachine<Player>
         input.RollEvent -= HandleRoll;
     }
 
+    protected override void Update()
+    {
+        base.Update();
+        rollInputDown = false;
+    }
+
     private void HandleRoll()
     {
-        rollPressed = true;
+        rollInputDown = true;
     }
 
     private void HandleMove(Vector2 movement)

@@ -17,7 +17,6 @@ public class PlayerIdleState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        RunnerObject.rollPressed = false;
     }
 
     public override void HandleStateTransitions()

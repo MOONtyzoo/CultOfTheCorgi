@@ -26,7 +26,7 @@ public class PlayerMoveState : State<Player>
 
     public override void HandleStateTransitions()
     {
-        if (RunnerObject.rollPressed)
+        if (RunnerObject.rollInputDown)
         {
             RunnerObject.SetState(typeof(PlayerRollState));
             return;

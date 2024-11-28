@@ -42,7 +42,6 @@ public class PlayerRollState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        RunnerObject.rollPressed = false;
         RunnerObject.SetVelocity(rollDirection*RunnerObject.playerData.rollSpeed);
     }
 
