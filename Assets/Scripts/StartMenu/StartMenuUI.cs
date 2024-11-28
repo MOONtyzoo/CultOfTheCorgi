@@ -2,10 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class StartMenuUI : MonoBehaviour
 {
+    [SerializeField] private EventSystem eventSystem;
+
     [Header("Main Submenu")][Space]
     [SerializeField] private CanvasGroup mainPanel;
 
@@ -24,14 +27,22 @@ public class StartMenuUI : MonoBehaviour
     }
     private Submenu currentSubmenu;
     Dictionary<Submenu, CanvasGroup> submenuPanels = new Dictionary<Submenu, CanvasGroup>();
+    Dictionary<Submenu, Button> submenuDefaultSelectedButtons = new Dictionary<Submenu, Button>();
 
-    void Awake() {
-        submenuPanels.Add(Submenu.Main, mainPanel);
-        submenuPanels.Add(Submenu.Controls, controlsPanel);
-        Time.timeScale = 1.0f;
-
+    void Awake()
+    {
+        InitializeDictionaries();
         SetupButtonClickedEvents();
         SwitchToSubmenu(Submenu.Main);
+    }
+
+    private void InitializeDictionaries()
+    {
+        submenuPanels.Add(Submenu.Main, mainPanel);
+        submenuPanels.Add(Submenu.Controls, controlsPanel);
+
+        submenuDefaultSelectedButtons.Add(Submenu.Main, startButton);
+        submenuDefaultSelectedButtons.Add(Submenu.Controls, controlsBackButton);
     }
 
     private void SetupButtonClickedEvents() {
@@ -46,6 +57,8 @@ public class StartMenuUI : MonoBehaviour
         HideSubmenu(currentSubmenu);
         ShowSubmenu(newSubmenu);
         currentSubmenu = newSubmenu;
+
+        SelectDefaultSubmenuButton();
     }
 
     private void ShowSubmenu(Submenu submenu) {
@@ -60,5 +73,10 @@ public class StartMenuUI : MonoBehaviour
         submenuPanel.alpha = 0;
         submenuPanel.interactable = false;
         submenuPanel.blocksRaycasts = false;
+    }
+
+    private void SelectDefaultSubmenuButton() {
+        Button defaultButton = submenuDefaultSelectedButtons[currentSubmenu];
+        eventSystem.SetSelectedGameObject(defaultButton.gameObject);
     }
 }
