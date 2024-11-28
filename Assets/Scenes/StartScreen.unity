@@ -1566,6 +1566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0475ba4b1368d6429127967276958b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eventSystem: {fileID: 285664781}
   mainPanel: {fileID: 635964326}
   startButton: {fileID: 1615595678}
   controlsButton: {fileID: 618232297}

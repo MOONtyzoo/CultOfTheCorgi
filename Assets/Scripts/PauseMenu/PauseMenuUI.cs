@@ -2,20 +2,25 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class PauseMenuUI : MonoBehaviour
 {
+   [SerializeField] private EventSystem eventSystem;
    [SerializeField] private InputReader input;
 
    [SerializeField] private CanvasGroup pausePanel;
    [SerializeField] private Button returnToStartScreenButton;
    [SerializeField] private Button resumeButton;
 
+   private Button defaultSelectedButton;
+
    private bool isPaused = false;
 
    private void Awake()
    {
+      defaultSelectedButton = resumeButton;
       HidePauseScreen();
       SetupButtonClickedEvents();
    }
@@ -31,8 +36,8 @@ public class PauseMenuUI : MonoBehaviour
    }
    
    private void SetupButtonClickedEvents() {
-      returnToStartScreenButton.onClick.AddListener(() => SceneLoader.Load(SceneLoader.Scene.StartScreen));
-      resumeButton.onClick.AddListener(() => HidePauseScreen());
+      returnToStartScreenButton.onClick.AddListener(() => ReturnToStartScreen());
+      resumeButton.onClick.AddListener(() => Resume());
    }
 
    private void TogglePause() {
@@ -43,10 +48,16 @@ public class PauseMenuUI : MonoBehaviour
       }
    }
 
+   private void ReturnToStartScreen() {
+      Time.timeScale = 1.0f;
+      SceneLoader.Load(SceneLoader.Scene.StartScreen);
+   }
+
    private void Pause() {
       Time.timeScale = 0.0f;
       isPaused = true;
       ShowPauseScreen();
+      SelectDefaultButton();
    }
    
    private void Resume() {
@@ -65,5 +76,9 @@ public class PauseMenuUI : MonoBehaviour
       pausePanel.alpha = 0;
       pausePanel.interactable = false;
       pausePanel.blocksRaycasts = false;
+   }
+
+   private void SelectDefaultButton() {
+      eventSystem.SetSelectedGameObject(defaultSelectedButton.gameObject);
    }
 }
