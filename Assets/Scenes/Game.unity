@@ -1109,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2eafd3b85f166461d99e212c092382dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 11400000, guid: d675c48a943c5a54e9c2447130e0ce4c, type: 2}
   pausePanel: {fileID: 1622818564}
   returnToStartScreenButton: {fileID: 1469944746}
   resumeButton: {fileID: 1992917362}
@@ -2419,10 +2420,8 @@ MonoBehaviour:
   Debug: 1
   playerData: {fileID: 11400000, guid: a703f7a76e087044b8133c1824c7e1c7, type: 2}
   input: {fileID: 11400000, guid: d675c48a943c5a54e9c2447130e0ce4c, type: 2}
-  PlayerSpriteRenderer: {fileID: 2098230591}
-  PlayerAnimator: {fileID: 2098230596}
-  Rigidbody: {fileID: 2098230594}
-  RollPressed: 0
+  movementInput: {x: 0, y: 0}
+  rollInputDown: 0
 --- !u!136 &2098230599
 CapsuleCollider:
   m_ObjectHideFlags: 0
