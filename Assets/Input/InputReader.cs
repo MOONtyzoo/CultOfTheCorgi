@@ -8,6 +8,7 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions
 {
     public event Action<Vector2> MovementEvent;
     public event Action RollEvent;
+    public event Action PauseEvent;
 
     private GameInput GameInput;
 
@@ -49,5 +50,10 @@ public class InputReader : ScriptableObject, GameInput.IPlayerActions
     {
         if (context.phase == InputActionPhase.Performed)
             RollEvent?.Invoke();
+    }
+
+    public void OnPause(InputAction.CallbackContext context) {
+        if (context.phase == InputActionPhase.Performed) 
+            PauseEvent?.Invoke();
     }
 }
