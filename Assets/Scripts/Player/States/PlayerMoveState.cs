@@ -5,8 +5,6 @@ using UnityEngine.InputSystem;
 
 public class PlayerMoveState : State<Player>
 {
-    private Vector2 PlayerMovement;
-
     public override void Enter(Player parent)
     {
         base.Enter(parent);
@@ -15,13 +13,12 @@ public class PlayerMoveState : State<Player>
 
     public override void Tick(float deltaTime)
     {
-        // we need to normalize the player's input to prevent moving faster diagonally
-        PlayerMovement = new Vector2(RunnerObject.movementInput.x, RunnerObject.movementInput.y).normalized;
+        RunnerObject.FlipSpriteToFaceDirection(RunnerObject.movementInput);
     }
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        RunnerObject.SetVelocity(PlayerMovement * RunnerObject.playerData.movementSpeed);
+        RunnerObject.SetVelocity(RunnerObject.movementInput * RunnerObject.playerData.movementSpeed);
     }
 
     public override void HandleStateTransitions()
@@ -32,7 +29,7 @@ public class PlayerMoveState : State<Player>
             return;
         }
 
-        if (PlayerMovement == Vector2.zero)
+        if (RunnerObject.movementInput == Vector2.zero)
         {
             RunnerObject.SetState(typeof(PlayerIdleState));
         }

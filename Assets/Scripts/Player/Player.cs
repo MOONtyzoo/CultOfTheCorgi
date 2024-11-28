@@ -12,9 +12,9 @@ public class Player : StateMachine<Player>
     private Animator animator;
     private new Rigidbody rigidbody;
 
-    // These variables are meant to propagate input to the states
+    // These variables propagate input to the states
     [HideInInspector] public Vector2 movementInput;
-    [HideInInspector] public bool rollInputDown; // Follows convention of Input.GetKeyDown: Only true on first frame of input.
+    [HideInInspector] public bool rollInputDown; // Follows convention of Input.GetKeyDown: Only true on first frame of input
 
     void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -47,13 +47,10 @@ public class Player : StateMachine<Player>
         rollInputDown = false;
     }
 
-    private void CheckFlipSprite(Vector2 velocity)
+    public void FlipSpriteToFaceDirection(Vector2 direction)
     {
-        bool IsFacingRight = !spriteRenderer.flipX;
-
-        if ((!(velocity.x > 0f) || IsFacingRight) && (!(velocity.x < 0f) || !IsFacingRight)) return;
-
-        spriteRenderer.flipX = !spriteRenderer.flipX;
+        if (direction.x == 0) return;
+        spriteRenderer.flipX = direction.x < 0f;
     }
 
     public void SetVelocity(Vector2 velocity)
@@ -77,7 +74,6 @@ public class Player : StateMachine<Player>
     private void HandleMove(Vector2 movement)
     {
         movementInput = movement;
-        CheckFlipSprite(movement);
     }
 
 }
