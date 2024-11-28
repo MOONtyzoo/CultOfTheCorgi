@@ -47,17 +47,6 @@ public class Player : StateMachine<Player>
         rollInputDown = false;
     }
 
-    private void HandleRoll()
-    {
-        rollInputDown = true;
-    }
-
-    private void HandleMove(Vector2 movement)
-    {
-        movementInput = movement;
-        CheckFlipSprite(movement);
-    }
-
     private void CheckFlipSprite(Vector2 velocity)
     {
         bool IsFacingRight = !spriteRenderer.flipX;
@@ -76,6 +65,19 @@ public class Player : StateMachine<Player>
     public void SetAnimation(string animation)
     {
         animator.Play(animation);
+    }
+
+    // ---------- Event Listeners ---------- //
+
+    private void HandleRoll()
+    {
+        rollInputDown = true;
+    }
+
+    private void HandleMove(Vector2 movement)
+    {
+        movementInput = movement;
+        CheckFlipSprite(movement);
     }
 
 }
