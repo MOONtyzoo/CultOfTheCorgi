@@ -1,31 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerIdleState : State<Player>
+public class PlayerAttackState : State<Player>
 {
+
+    private float elapsedTime;
     public override void Enter(Player parent)
     {
         base.Enter(parent);
-        RunnerObject.SetAnimation("PlayerIdle");
-        RunnerObject.SetVelocity(Vector2.zero);
+        elapsedTime = 0f;
     }
 
     public override void Tick(float deltaTime)
     {
+        elapsedTime += deltaTime;
     }
+    
 
     public override void FixedTick(float fixedDeltaTime)
     {
+        
     }
 
     public override void HandleStateTransitions()
     {
         
-        if (RunnerObject.movementInput.sqrMagnitude != 0)
+        if (elapsedTime >= RunnerObject.playerData.attackDuration)
         {
-            RunnerObject.SetState(typeof(PlayerMoveState));
+            RunnerObject.SetState(typeof(PlayerIdleState));
         }
-        
     }
 }

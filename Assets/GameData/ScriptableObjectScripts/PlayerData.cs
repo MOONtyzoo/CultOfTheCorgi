@@ -11,4 +11,7 @@ public class PlayerData : ScriptableObject
     [Header("Roll State"), Space]
     [SerializeField, Range(0, 50)] public float rollSpeed;
     [SerializeField, Range(0, 1)] public float rollDuration;
+
+    [Header("Attack State"), Space] 
+    [SerializeField, Range(0, 1)] public float attackDuration;
 }
