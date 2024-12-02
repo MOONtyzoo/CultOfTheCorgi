@@ -35,10 +35,10 @@ public class SpriteEffectsPropertySetter : MonoBehaviour
 
     // OnValidate is called in the editor after the component is edited
     void OnValidate() {
-        UpdateShaderPropeties();
+        UpdateShaderProperties();
     }
 
-    void UpdateShaderPropeties()
+    void UpdateShaderProperties()
     {
         Renderer renderer = GetComponent<Renderer>();
 
@@ -61,7 +61,10 @@ public class SpriteEffectsPropertySetter : MonoBehaviour
 
     void Awake() {
         renderer = GetComponent<Renderer>();
-        UpdateShaderPropeties();
+        if(!renderer.material.name.Contains("SpriteEffects")) {
+            Debug.LogError("This object has a SpriteEffectsPropertySetter, but the material was not set to SpriteEffects, so it won't work", this);
+        }
+        UpdateShaderProperties();
     }
 
     public void SetTintColor(Color newTintColor) {
