@@ -15,3 +15,4 @@ MonoBehaviour:
   movementSpeed: 12
   rollSpeed: 33
   rollDuration: 0.36
+  attackDuration: 1

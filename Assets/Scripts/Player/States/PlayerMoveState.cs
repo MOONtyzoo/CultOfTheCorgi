@@ -28,10 +28,17 @@ public class PlayerMoveState : State<Player>
             RunnerObject.SetState(typeof(PlayerRollState));
             return;
         }
+        
+        if (RunnerObject.attackInputDown)
+        {
+            RunnerObject.SetState(typeof(PlayerAttackState));
+            return;
+        }
 
         if (RunnerObject.movementInput == Vector2.zero)
         {
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
+        
     }
 }

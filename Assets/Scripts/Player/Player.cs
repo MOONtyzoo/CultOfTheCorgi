@@ -11,10 +11,12 @@ public class Player : StateMachine<Player>
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private new Rigidbody rigidbody;
+    
 
     // These variables propagate input to the states
     [HideInInspector] public Vector2 movementInput;
     [HideInInspector] public bool rollInputDown; // Follows convention of Input.GetKeyDown: Only true on first frame of input
+    [HideInInspector] public bool attackInputDown;
 
     void Awake() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -25,6 +27,7 @@ public class Player : StateMachine<Player>
             new PlayerIdleState(),
             new PlayerMoveState(),
             new PlayerRollState(),
+            new PlayerAttackState()
         };
         InitializeStateMachine(playerStates);
     }
@@ -33,18 +36,21 @@ public class Player : StateMachine<Player>
     {
         input.MovementEvent += HandleMove;
         input.RollEvent += HandleRoll;
+        input.AttackEvent += HandleAttack;
     }
 
     private void OnDisable()
     {
         input.MovementEvent -= HandleMove;
         input.RollEvent -= HandleRoll;
+        input.AttackEvent -= HandleAttack;
     }
 
     protected override void Update()
     {
         base.Update();
         rollInputDown = false;
+        attackInputDown = false;
     }
 
     public void FlipSpriteToFaceDirection(Vector2 direction)
@@ -76,4 +82,9 @@ public class Player : StateMachine<Player>
         movementInput = movement;
     }
 
+    private void HandleAttack()
+    {
+        attackInputDown = true;
+    }
+    
 }
