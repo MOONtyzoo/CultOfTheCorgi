@@ -8,7 +8,7 @@ public class PlayerMoveState : State<Player>
     public override void Enter(Player parent)
     {
         base.Enter(parent);
-        RunnerObject.SetAnimation("PlayerRun");
+        RunnerObject.SetAnimation(Player.AnimationName.PlayerRun);
     }
 
     public override void Tick(float deltaTime)

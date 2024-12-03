@@ -64,10 +64,18 @@ public class Player : StateMachine<Player>
         Vector3 newVelocity =  new Vector3(velocity.x, 0, velocity.y);
         rigidbody.velocity = newVelocity;
     }
-
-    public void SetAnimation(string animation)
+    
+    public enum AnimationName {
+        PlayerIdle,
+        PlayerRun,
+        PlayerAttack1,
+        PlayerAttack2,
+        PlayerAttack3,
+        PlayerReturnToIdle
+    }
+    public void SetAnimation(AnimationName animation)
     {
-        animator.Play(animation);
+        animator.Play(animation.ToString());
     }
 
     // ---------- Event Listeners ---------- //

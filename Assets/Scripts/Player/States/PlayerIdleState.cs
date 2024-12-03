@@ -7,7 +7,7 @@ public class PlayerIdleState : State<Player>
     public override void Enter(Player parent)
     {
         base.Enter(parent);
-        RunnerObject.SetAnimation("PlayerIdle");
+        RunnerObject.SetAnimation(Player.AnimationName.PlayerIdle);
         RunnerObject.SetVelocity(Vector2.zero);
     }
 

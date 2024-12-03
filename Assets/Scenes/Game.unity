@@ -2267,10 +2267,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2098230592}
   - component: {fileID: 2098230591}
-  - component: {fileID: 2098230594}
   - component: {fileID: 2098230596}
   - component: {fileID: 2098230600}
   - component: {fileID: 2098230597}
+  - component: {fileID: 2098230594}
   - component: {fileID: 2098230599}
   m_Layer: 0
   m_Name: Player
