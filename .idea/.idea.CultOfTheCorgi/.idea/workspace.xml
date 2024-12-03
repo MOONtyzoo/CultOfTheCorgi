@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4a9eb240-1046-4a48-be20-1fc7eb70fbe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CultOfTheCorgi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CultOfTheCorgi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameData/ScriptableObjectScripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameData/ScriptableObjectScripts/PlayerData.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/GameInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/GameInput.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/GameInput.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/GameInput.inputactions" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Input/InputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Input/InputReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameData/PlayerData.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerIdleState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerMoveState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerMoveState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerAttackState.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +19,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/KeyboardInput.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Components/HitboxPool.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PauseMenu/PauseMenuUI.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -98,7 +93,7 @@
       <workItem from="1731869667581" duration="4996000" />
       <workItem from="1731979205578" duration="34000" />
       <workItem from="1732172434912" duration="377000" />
-      <workItem from="1733078281788" duration="9831000" />
+      <workItem from="1733078281788" duration="14367000" />
     </task>
     <servers />
   </component>
@@ -114,24 +109,5 @@
   <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerAttackState.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Player/States/PlayerAttackState.cs" containingFunctionPresentation="Method 'HandleStateTransitions'">
-            <startOffsets>
-              <option value="585" />
-            </startOffsets>
-            <endOffsets>
-              <option value="643" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -6,12 +6,14 @@ using UnityEngine.InputSystem;
 
 public class PlayerAttackState : State<Player>
 {
-
     private float elapsedTime;
     public override void Enter(Player parent)
     {
         base.Enter(parent);
         elapsedTime = 0f;
+        RunnerObject.SetVelocity(Vector2.zero);
+        RunnerObject.SetAnimation("PlayerIdle");
+        Debug.Log("Attacking");
     }
 
     public override void Tick(float deltaTime)
@@ -22,7 +24,6 @@ public class PlayerAttackState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        
     }
 
     public override void HandleStateTransitions()
@@ -33,4 +34,5 @@ public class PlayerAttackState : State<Player>
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
     }
+    
 }

@@ -2411,6 +2411,7 @@ MonoBehaviour:
   input: {fileID: 11400000, guid: d675c48a943c5a54e9c2447130e0ce4c, type: 2}
   movementInput: {x: 0, y: 0}
   rollInputDown: 0
+  attackInputDown: 0
 --- !u!136 &2098230599
 CapsuleCollider:
   m_ObjectHideFlags: 0
