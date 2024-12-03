@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,7 @@ public class Player : StateMachine<Player>
 {
     [SerializeField] public PlayerData playerData;
     [SerializeField] private InputReader input;
+   // [SerializeField] public BoxCollider Hitbox;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
@@ -31,6 +33,15 @@ public class Player : StateMachine<Player>
         };
         InitializeStateMachine(playerStates);
     }
+
+    /*public void OnTriggerEnter(Collider other)
+    {
+        if (Hitbox.bounds.Contains(other.transform.position))
+        {
+            Debug.Log(other.name);
+        }
+    }
+    */
 
     private void OnEnable()
     {

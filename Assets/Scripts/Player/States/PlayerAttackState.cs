@@ -24,7 +24,7 @@ public class PlayerAttackState : State<Player>
         base.Enter(parent);
         RunnerObject.SetVelocity(Vector2.zero);
         SetCurrentAttack(AttackType.Attack1);
-        Hit(RunnerObject.transform, true);
+        //Hit(RunnerObject.transform, true);
         Debug.Log("Attacking");
     }
 
@@ -88,6 +88,15 @@ public class PlayerAttackState : State<Player>
         currentAttack = newAttack;
     }
 
+    /*public void OnTriggerEnter(Collider other)
+    {
+        if (RunnerObject.Hitbox.bounds.Contains(other.transform.position))
+        {
+            Debug.Log(other.name);
+        }
+    }
+
+   /*
     public Collider[] Hit(Transform origin, bool isFacingRight)
     {
         var bounds = GetBoundsRelativeToPlayer(origin, isFacingRight);
@@ -105,4 +114,5 @@ public class PlayerAttackState : State<Player>
         bounds.center = player.position + offset;
         return bounds;
     }
+    */
 }
