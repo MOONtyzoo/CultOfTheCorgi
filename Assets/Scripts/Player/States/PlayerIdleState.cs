@@ -27,5 +27,11 @@ public class PlayerIdleState : State<Player>
             RunnerObject.SetState(typeof(PlayerMoveState));
         }
         
+        if (RunnerObject.attackInputDown)
+        {
+            RunnerObject.SetState(typeof(PlayerAttackState));
+            return;
+        }
+        
     }
 }
