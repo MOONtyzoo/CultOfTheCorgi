@@ -12,7 +12,7 @@ public class PlayerAttackState : State<Player>
         base.Enter(parent);
         elapsedTime = 0f;
         RunnerObject.SetVelocity(Vector2.zero);
-        RunnerObject.SetAnimation("PlayerIdle");
+        RunnerObject.SetAnimation("CorgiFight1");
         Debug.Log("Attacking");
     }
 
@@ -31,6 +31,7 @@ public class PlayerAttackState : State<Player>
         
         if (elapsedTime >= RunnerObject.playerData.attackDuration)
         {
+            RunnerObject.SetAnimation("CorgiReturnToIdle");
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
     }
