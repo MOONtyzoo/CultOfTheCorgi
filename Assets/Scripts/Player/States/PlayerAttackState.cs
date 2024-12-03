@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Extensions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,7 @@ public class PlayerAttackState : State<Player>
         base.Enter(parent);
         RunnerObject.SetVelocity(Vector2.zero);
         SetCurrentAttack(AttackType.Attack1);
+        Hit(RunnerObject.transform, true);
         Debug.Log("Attacking");
     }
 
@@ -84,5 +86,23 @@ public class PlayerAttackState : State<Player>
                 break;
         }
         currentAttack = newAttack;
-    }  
+    }
+
+    public Collider[] Hit(Transform origin, bool isFacingRight)
+    {
+        var bounds = GetBoundsRelativeToPlayer(origin, isFacingRight);
+        bounds.DrawBounds(1);
+        return Physics.OverlapBox(bounds.center, bounds.extents);
+    }
+
+    private Bounds GetBoundsRelativeToPlayer(Transform player, bool isFacingRight)
+    {
+        var bounds = new Bounds();
+        isFacingRight = true;
+        var xValue = isFacingRight ? 1 : -1;
+        var offset = new Vector3(1,1,0);
+        offset.x *= xValue;
+        bounds.center = player.position + offset;
+        return bounds;
+    }
 }
