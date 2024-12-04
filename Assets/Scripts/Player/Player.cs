@@ -67,6 +67,7 @@ public class Player : StateMachine<Player>
     
     public enum AnimationName {
         PlayerIdle,
+        PlayerRoll,
         PlayerRun,
         PlayerAttack1,
         PlayerAttack2,
