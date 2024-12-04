@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Extensions;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttackState : State<Player>
 {
     private float elapsedTime;
+    //private AttackHitbox hitbox;
 
     private enum AttackType {
         Attack1,
@@ -23,6 +25,7 @@ public class PlayerAttackState : State<Player>
         base.Enter(parent);
         RunnerObject.SetVelocity(Vector2.zero);
         SetCurrentAttack(AttackType.Attack1);
+        RunnerObject.hitbox.CreateHitBoxPrefab();
         Debug.Log("Attacking");
     }
 
@@ -30,7 +33,7 @@ public class PlayerAttackState : State<Player>
     {
         elapsedTime += deltaTime;
 
-        // If you click the attack button again before the attack ends, then the next attack will player
+        // If you click the attack button again before the attack ends, then the next attack will play
         if (RunnerObject.attackInputDown) {
             hasPlayerInputAttack = true;
         }
@@ -54,6 +57,8 @@ public class PlayerAttackState : State<Player>
     {
         if (elapsedTime >= currentAttackDuration + 0.1f)
         {
+            RunnerObject.hitbox.DestroyHitbox();
+            Debug.Log("Attack over");
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
     }
@@ -84,5 +89,6 @@ public class PlayerAttackState : State<Player>
                 break;
         }
         currentAttack = newAttack;
-    }  
+    }
+    
 }

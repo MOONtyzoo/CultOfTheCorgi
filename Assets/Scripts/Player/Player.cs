@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,10 +8,15 @@ public class Player : StateMachine<Player>
 {
     [SerializeField] public PlayerData playerData;
     [SerializeField] private InputReader input;
+    [SerializeField] public AttackHitbox hitbox;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private new Rigidbody rigidbody;
+    
+
+    public bool IsFacingRight => isFacingRight;
+    private bool isFacingRight = true;
     
 
     // These variables propagate input to the states
@@ -57,6 +63,7 @@ public class Player : StateMachine<Player>
     {
         if (direction.x == 0) return;
         spriteRenderer.flipX = direction.x < 0f;
+        isFacingRight = !isFacingRight;
     }
 
     public void SetVelocity(Vector2 velocity)
