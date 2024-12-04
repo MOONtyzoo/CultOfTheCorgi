@@ -9,7 +9,6 @@ using UnityEngine.InputSystem;
 public class PlayerAttackState : State<Player>
 {
     private float elapsedTime;
-    //private AttackHitbox hitbox;
 
     private enum AttackType {
         Attack1,
@@ -26,7 +25,7 @@ public class PlayerAttackState : State<Player>
         RunnerObject.SetVelocity(Vector2.zero);
         SetCurrentAttack(AttackType.Attack1);
         RunnerObject.hitbox.CreateHitBoxPrefab();
-        Debug.Log("Attacking");
+        Debug.Log("Attacking:" + RunnerObject.IsFacingRight);
     }
 
     public override void Tick(float deltaTime)

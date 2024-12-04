@@ -63,7 +63,14 @@ public class Player : StateMachine<Player>
     {
         if (direction.x == 0) return;
         spriteRenderer.flipX = direction.x < 0f;
-        isFacingRight = !isFacingRight;
+        if (direction.x > 0)
+        {
+            isFacingRight = true;
+        }
+        else
+        {
+            isFacingRight = false;
+        }
     }
 
     public void SetVelocity(Vector2 velocity)
