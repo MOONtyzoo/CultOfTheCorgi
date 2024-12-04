@@ -15,4 +15,6 @@ MonoBehaviour:
   movementSpeed: 12
   rollSpeed: 33
   rollDuration: 0.36
-  attackDuration: 0.5
+  attack1Duration: 0.5
+  attack2Duration: 0.476
+  attack3Duration: 0.712

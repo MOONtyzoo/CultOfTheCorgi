@@ -17,6 +17,7 @@ public class PlayerRollState : State<Player>
         base.Enter(parent);
 
         elapsedTime = 0f;
+        RunnerObject.SetAnimation(Player.AnimationName.PlayerRoll);
         rollDirection = parent.movementInput;
 
         if (!debug) return;
