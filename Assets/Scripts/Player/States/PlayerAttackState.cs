@@ -9,6 +9,7 @@ using UnityEngine.InputSystem;
 public class PlayerAttackState : State<Player>
 {
     private float elapsedTime;
+    //private AttackHitbox hitbox;
 
     private enum AttackType {
         Attack1,
@@ -24,7 +25,7 @@ public class PlayerAttackState : State<Player>
         base.Enter(parent);
         RunnerObject.SetVelocity(Vector2.zero);
         SetCurrentAttack(AttackType.Attack1);
-        //Hit(RunnerObject.transform, true);
+        RunnerObject.hitbox.CreateHitBoxPrefab();
         Debug.Log("Attacking");
     }
 
@@ -32,7 +33,7 @@ public class PlayerAttackState : State<Player>
     {
         elapsedTime += deltaTime;
 
-        // If you click the attack button again before the attack ends, then the next attack will player
+        // If you click the attack button again before the attack ends, then the next attack will play
         if (RunnerObject.attackInputDown) {
             hasPlayerInputAttack = true;
         }
@@ -56,6 +57,8 @@ public class PlayerAttackState : State<Player>
     {
         if (elapsedTime >= currentAttackDuration + 0.1f)
         {
+            RunnerObject.hitbox.DestroyHitbox();
+            Debug.Log("Attack over");
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
     }
@@ -87,32 +90,5 @@ public class PlayerAttackState : State<Player>
         }
         currentAttack = newAttack;
     }
-
-    /*public void OnTriggerEnter(Collider other)
-    {
-        if (RunnerObject.Hitbox.bounds.Contains(other.transform.position))
-        {
-            Debug.Log(other.name);
-        }
-    }
-
-   /*
-    public Collider[] Hit(Transform origin, bool isFacingRight)
-    {
-        var bounds = GetBoundsRelativeToPlayer(origin, isFacingRight);
-        bounds.DrawBounds(1);
-        return Physics.OverlapBox(bounds.center, bounds.extents);
-    }
-
-    private Bounds GetBoundsRelativeToPlayer(Transform player, bool isFacingRight)
-    {
-        var bounds = new Bounds();
-        isFacingRight = true;
-        var xValue = isFacingRight ? 1 : -1;
-        var offset = new Vector3(1,1,0);
-        offset.x *= xValue;
-        bounds.center = player.position + offset;
-        return bounds;
-    }
-    */
+    
 }

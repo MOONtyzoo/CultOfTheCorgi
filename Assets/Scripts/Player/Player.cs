@@ -8,11 +8,15 @@ public class Player : StateMachine<Player>
 {
     [SerializeField] public PlayerData playerData;
     [SerializeField] private InputReader input;
-   // [SerializeField] public BoxCollider Hitbox;
+    [SerializeField] public AttackHitbox hitbox;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private new Rigidbody rigidbody;
+    
+
+    public bool IsFacingRight => isFacingRight;
+    private bool isFacingRight = true;
     
 
     // These variables propagate input to the states
@@ -33,15 +37,6 @@ public class Player : StateMachine<Player>
         };
         InitializeStateMachine(playerStates);
     }
-
-    /*public void OnTriggerEnter(Collider other)
-    {
-        if (Hitbox.bounds.Contains(other.transform.position))
-        {
-            Debug.Log(other.name);
-        }
-    }
-    */
 
     private void OnEnable()
     {
@@ -68,6 +63,7 @@ public class Player : StateMachine<Player>
     {
         if (direction.x == 0) return;
         spriteRenderer.flipX = direction.x < 0f;
+        isFacingRight = !isFacingRight;
     }
 
     public void SetVelocity(Vector2 velocity)
