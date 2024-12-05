@@ -5930,7 +5930,7 @@ GameObject:
   - component: {fileID: 737329907}
   - component: {fileID: 737329906}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: TestEnemy
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

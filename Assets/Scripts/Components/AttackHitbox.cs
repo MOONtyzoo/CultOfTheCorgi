@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class AttackHitbox : MonoBehaviour
 {
-    public Player player;
-    public GameObject hitboxRightPrefab;
-    public GameObject hitboxLeftPrefab;
+    [SerializeField] Player player;
+    [Space]
+    [Header("Prefabs")]
+    [SerializeField] GameObject hitboxRightPrefab;
+    [SerializeField] GameObject hitboxLeftPrefab;
     private GameObject currentHitboxInstance;
 
     public void DestroyHitbox()
