@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 12
   rollSpeed: 33
-  rollDuration: 0.36
+  rollDuration: 0.75
   attack1Duration: 0.7
   attack2Duration: 0.7
   attack3Duration: 0.7
