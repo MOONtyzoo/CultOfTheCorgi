@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4893640227351409623}
-  - component: {fileID: 4712147363840072650}
+  - component: {fileID: 1669300128834010655}
   - component: {fileID: 4035807618391299193}
   - component: {fileID: 1318964697537874863}
   - component: {fileID: 6098211115258020034}
-  - component: {fileID: 7440133721230085767}
   m_Layer: 0
   m_Name: WolfEnemy
   m_TagString: Player
@@ -37,7 +36,7 @@ Transform:
   - {fileID: 730914585318913621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &4712147363840072650
+--- !u!212 &1669300128834010655
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ddece9115d68a064abb23926134e8213, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: fcc24653ee8981b4289fbf553ad3e070, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5740477, g: 0.59520197, b: 0.8113208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,24 +148,6 @@ MonoBehaviour:
   OnHealthDepleted:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7440133721230085767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4863447402825861755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a10df34b6fbf1c46af70c3d5c5a0804, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TintColor: {r: 1, g: 1, b: 1, a: 1}
-  TintAmount: 0
-  HueShift: 2.59
-  Saturation: 0.1
-  Brightness: -0.38
-  Opacity: 1
 --- !u!1001 &3422360119623365759
 PrefabInstance:
   m_ObjectHideFlags: 0
