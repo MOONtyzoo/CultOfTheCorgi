@@ -5,14 +5,18 @@ using UnityEngine;
 
 public class HitboxRecognition : MonoBehaviour
 {
+    private int damage = 0;
+
+    public void SetDamage(int newDamage) {
+        damage = newDamage;
+    }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("HitboxRecognition");
-            // Damage Enemy
-            // Play hit sound maybe?
-            // 
+            HealthSystem healthSystem = other.GetComponent<HealthSystem>();
+            healthSystem.Damage(damage);
         }
     }
 }

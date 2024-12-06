@@ -16,5 +16,8 @@ MonoBehaviour:
   rollSpeed: 28
   rollDuration: 0.75
   attack1Duration: 0.7
+  attack1Damage: 15
   attack2Duration: 0.7
+  attack2Damage: 25
   attack3Duration: 0.7
+  attack3Damage: 35

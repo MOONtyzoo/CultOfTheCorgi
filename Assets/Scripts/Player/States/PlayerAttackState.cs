@@ -24,8 +24,6 @@ public class PlayerAttackState : State<Player>
         base.Enter(parent);
         RunnerObject.SetVelocity(Vector2.zero);
         SetCurrentAttack(AttackType.Attack1);
-        RunnerObject.hitbox.CreateHitBoxPrefab();
-        Debug.Log("Attacking:" + RunnerObject.IsFacingRight);
     }
 
     public override void Tick(float deltaTime)
@@ -56,8 +54,6 @@ public class PlayerAttackState : State<Player>
     {
         if (elapsedTime >= currentAttackDuration + 0.1f)
         {
-            RunnerObject.hitbox.DestroyHitbox();
-            Debug.Log("Attack over");
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
     }
@@ -77,14 +73,17 @@ public class PlayerAttackState : State<Player>
             case AttackType.Attack1:
                 currentAttackDuration = RunnerObject.playerData.attack1Duration;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack1);
+                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack1Damage);
                 break;
             case AttackType.Attack2:
                 currentAttackDuration = RunnerObject.playerData.attack2Duration;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack2);
+                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack2Damage);
                 break;
             case AttackType.Attack3:
                 currentAttackDuration = RunnerObject.playerData.attack3Duration;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack3);
+                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack3Damage);
                 break;
         }
         currentAttack = newAttack;
