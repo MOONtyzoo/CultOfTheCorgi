@@ -1,18 +1,31 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public HealthSystem healthSystem;
+    /*
+     * move around world towards player
+     * if within certain distance of player, attack
+     * if so damage player
+     * if health is depleted destroy enemy
+     */
+    private void Start()
+    {
+    }
+
+    void Update()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        if (healthSystem.IsHealthDepleted())
+        {
+            Destroy(gameObject);
+        }
     }
 }
