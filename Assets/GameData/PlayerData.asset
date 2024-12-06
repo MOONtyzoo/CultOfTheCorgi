@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   movementSpeed: 12
-  rollSpeed: 33
+  rollSpeed: 28
   rollDuration: 0.75
   attack1Duration: 0.7
   attack2Duration: 0.7
