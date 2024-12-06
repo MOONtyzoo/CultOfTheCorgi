@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public HealthSystem healthSystem;
+    [SerializeField] HealthSystem healthSystem;
     /*
      * move around world towards player
      * if within certain distance of player, attack
