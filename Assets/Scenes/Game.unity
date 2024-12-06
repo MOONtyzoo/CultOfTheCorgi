@@ -149,7 +149,7 @@ Transform:
   m_GameObject: {fileID: 109698635}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.24, y: -0.90700006, z: 3.32}
+  m_LocalPosition: {x: -0.24, y: -1.81, z: 0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7480,6 +7480,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: a703f7a76e087044b8133c1824c7e1c7, type: 2}
   input: {fileID: 11400000, guid: d675c48a943c5a54e9c2447130e0ce4c, type: 2}
   hitbox: {fileID: 1150363172}
+  particles: {fileID: 109698638}
   movementInput: {x: 0, y: 0}
   rollInputDown: 0
   attackInputDown: 0

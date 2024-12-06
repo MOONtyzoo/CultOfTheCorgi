@@ -9,6 +9,7 @@ public class Player : StateMachine<Player>
     [SerializeField] public PlayerData playerData;
     [SerializeField] private InputReader input;
     [SerializeField] public AttackHitbox hitbox;
+    [SerializeField] public ParticleSystem particles;
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
