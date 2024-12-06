@@ -18,3 +18,6 @@ MonoBehaviour:
   attack1Duration: 0.7
   attack2Duration: 0.7
   attack3Duration: 0.7
+  attack1Damage: 15
+  attack2Damage: 20
+  attack3Damage: 35

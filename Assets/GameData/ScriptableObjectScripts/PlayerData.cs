@@ -16,4 +16,7 @@ public class PlayerData : ScriptableObject
     [SerializeField, Range(0, 1)] public float attack1Duration;
     [SerializeField, Range(0, 1)] public float attack2Duration;
     [SerializeField, Range(0, 1)] public float attack3Duration;
+    [SerializeField, Range(0, 100)] public int attack1Damage;
+    [SerializeField, Range(0, 100)] public int attack2Damage;
+    [SerializeField, Range(0, 100)] public int attack3Damage;
 }
