@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 2691481955895657002}
   - component: {fileID: 4771994590172537784}
   - component: {fileID: 358761534216308881}
+  - component: {fileID: 8785351841308804643}
   m_Layer: 0
   m_Name: EntityHealthBar
   m_TagString: Untagged
@@ -313,3 +314,16 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &8785351841308804643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7629352784842174339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b46760d8078bdb43bdafc852bfa449d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 3
