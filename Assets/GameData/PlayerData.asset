@@ -13,8 +13,32 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   movementSpeed: 12
-  rollSpeed: 28
-  rollDuration: 0.75
+  rollSpeed: 32.4
+  rollDuration: 0.816
+  rollWeightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.01
+      value: 1.0113101
+      inSlope: -0.50074744
+      outSlope: -0.50074744
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08450704
+    - serializedVersion: 3
+      time: 0.98999995
+      value: 0.01131013
+      inSlope: -1.5179138
+      outSlope: -1.5179138
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.07159619
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   attack1Duration: 0.7
   attack1Damage: 15
   attack2Duration: 0.7
