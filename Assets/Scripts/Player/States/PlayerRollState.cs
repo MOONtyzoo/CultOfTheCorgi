@@ -19,7 +19,7 @@ public class PlayerRollState : State<Player>
         elapsedTime = 0f;
         RunnerObject.SetAnimation(Player.AnimationName.PlayerRoll);
         rollDirection = parent.movementInput;
-        
+
         if (!debug) return;
         DebugDrawRollLine();
     }
@@ -40,6 +40,12 @@ public class PlayerRollState : State<Player>
         if (elapsedTime >= RunnerObject.playerData.rollDuration)
         {
             RunnerObject.SetState(typeof(PlayerIdleState));
+        }
+        
+        if (RunnerObject.attackInputDown)
+        {
+            RunnerObject.SetState(typeof(PlayerAttackState));
+            return;
         }
     }
 
