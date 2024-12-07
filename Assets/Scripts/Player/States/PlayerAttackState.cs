@@ -48,6 +48,7 @@ public class PlayerAttackState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
+        RunnerObject.SetVelocity(RunnerObject.movementInput * RunnerObject.playerData.movementSpeed * 0.3f);
     }
 
     public override void HandleStateTransitions()
