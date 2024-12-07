@@ -16,8 +16,7 @@ public class Player : StateMachine<Player>
     private new Rigidbody rigidbody;
     
 
-    public bool IsFacingRight => isFacingRight;
-    private bool isFacingRight = true;
+    public bool IsFacingRight { get; private set; }
     
 
     // These variables propagate input to the states
@@ -69,11 +68,11 @@ public class Player : StateMachine<Player>
         spriteRenderer.flipX = direction.x < 0f;
         if (direction.x > 0)
         {
-            isFacingRight = true;
+            IsFacingRight = true;
         }
         else
         {
-            isFacingRight = false;
+            IsFacingRight = false;
         }
     }
 

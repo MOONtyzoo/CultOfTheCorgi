@@ -7,29 +7,26 @@ public class AttackHitbox : MonoBehaviour
     [SerializeField] Player player;
     [Space]
     [Header("Prefabs")]
-    [SerializeField] GameObject hitboxRightPrefab;
-    [SerializeField] GameObject hitboxLeftPrefab;
+    [SerializeField] GameObject hitboxPrefab;
+    [SerializeField] Transform leftHitboxSpawnpoint;
+    [SerializeField] Transform rightHitboxSpawnpoint;
     private GameObject currentHitboxInstance;
 
     public void CreateHitBoxPrefab(int damage)
     {
         if (currentHitboxInstance == null)
         {
-            float xOffset = 0;
-            float yOffset = 0;
+            Transform hitboxSpawnPoint;
             if (player.IsFacingRight)
             {
-                xOffset = 1;
-                yOffset = -0.5f;
+                hitboxSpawnPoint = rightHitboxSpawnpoint;
             }
             else
             {
-                xOffset = -1;
-                yOffset = -0.5f;
+                hitboxSpawnPoint = leftHitboxSpawnpoint;
             }
 
-            Vector3 hitboxPosition = new Vector3(player.transform.position.x + xOffset, player.transform.position.y + yOffset, player.transform.position.z);
-            currentHitboxInstance = Instantiate(hitboxRightPrefab, hitboxPosition, Quaternion.identity);
+            currentHitboxInstance = Instantiate(hitboxPrefab, hitboxSpawnPoint);
             HitboxRecognition hitboxRecognition = currentHitboxInstance.GetComponent<HitboxRecognition>();
             hitboxRecognition.SetDamage(damage);
             Destroy(currentHitboxInstance, 0.1f);

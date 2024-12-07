@@ -39,9 +39,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  attack1Duration: 0.7
+  attack1Duration: 0.35
   attack1Damage: 15
-  attack2Duration: 0.7
+  attack2Duration: 0.35
   attack2Damage: 25
-  attack3Duration: 0.7
+  attack3Duration: 0.525
   attack3Damage: 35

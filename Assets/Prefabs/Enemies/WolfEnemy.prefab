@@ -11,11 +11,12 @@ GameObject:
   - component: {fileID: 4893640227351409623}
   - component: {fileID: 1669300128834010655}
   - component: {fileID: 4035807618391299193}
+  - component: {fileID: 453528938056452942}
   - component: {fileID: 1318964697537874863}
   - component: {fileID: 6098211115258020034}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WolfEnemy
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -103,14 +104,41 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.32
+  m_Radius: 1.1353829
   m_Height: 3.45
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: 0.18461728}
+--- !u!54 &453528938056452942
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863447402825861755}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 1
 --- !u!114 &1318964697537874863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,6 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 490694bce73839148a2c4fb1365e1af5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  detectionRadius: 15
+  disengageRadius: 20
+  moveSpeed: 6
+  knockbackSpeed: 32
+  knockbackDuration: 0.4
+  stunDuration: 0.5
 --- !u!114 &6098211115258020034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,6 +190,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4893640227351409623}
     m_Modifications:
+    - target: {fileID: 934024118311447264, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2691481955895657002, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.25
@@ -208,13 +246,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4743667878754551162, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 4771994590172537784, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
       propertyPath: healthSystem
       value: 
       objectReference: {fileID: 6098211115258020034}
+    - target: {fileID: 6953642779628154575, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7629352784842174339, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
       propertyPath: m_Name
       value: EntityHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7629352784842174339, guid: e32a727fa8f363444bf2ce0598fdab5f, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

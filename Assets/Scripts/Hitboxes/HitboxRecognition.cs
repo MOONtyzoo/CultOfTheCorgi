@@ -13,7 +13,7 @@ public class HitboxRecognition : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
             HealthSystem healthSystem = other.GetComponent<HealthSystem>();
             healthSystem.Damage(damage);

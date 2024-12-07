@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 109698636}
   - component: {fileID: 109698638}
   - component: {fileID: 109698637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RunningParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5039,7 +5039,7 @@ Transform:
   m_GameObject: {fileID: 196920716}
   serializedVersion: 2
   m_LocalRotation: {x: 0.29570797, y: 0, z: 0, w: 0.9552784}
-  m_LocalPosition: {x: -4.29, y: 24.56, z: -33.32}
+  m_LocalPosition: {x: -2.22, y: 24.56, z: -33.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5311,6 +5311,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0453929df203fa4b9f490c4f3d0d9cb, type: 3}
+--- !u!1 &381393441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381393442}
+  m_Layer: 7
+  m_Name: LeftHitboxSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381393442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381393441}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2098230592}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &392963779
 GameObject:
   m_ObjectHideFlags: 0
@@ -5598,13 +5629,44 @@ Transform:
   m_GameObject: {fileID: 438369022}
   serializedVersion: 2
   m_LocalRotation: {x: 0.29570797, y: 0, z: 0, w: 0.9552784}
-  m_LocalPosition: {x: -4.29, y: 24.56, z: -33.32}
+  m_LocalPosition: {x: -2.22, y: 24.56, z: -33.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 208427400}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 34.4, y: 0, z: 0}
+--- !u!1 &537738918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 537738919}
+  m_Layer: 7
+  m_Name: RightHitboxSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &537738919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 537738918}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2098230592}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &545812863
 GameObject:
   m_ObjectHideFlags: 0
@@ -5751,6 +5813,10 @@ PrefabInstance:
     - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_Name
       value: WolfEnemy (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4893640227351409623, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5904,7 +5970,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 14, y: 0.5, z: 25}
-  m_LocalScale: {x: 22, y: 6.09, z: 1}
+  m_LocalScale: {x: 99.365204, y: 6.09, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1510453919}
@@ -5991,6 +6057,10 @@ PrefabInstance:
     - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_Name
       value: WolfEnemy (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4893640227351409623, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6397,8 +6467,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2098230597}
-  hitboxRightPrefab: {fileID: 8800500147524966897, guid: ad6625e6758394e6089e112e56eb3d5e, type: 3}
-  hitboxLeftPrefab: {fileID: 3040142232272013069, guid: e8d3d7f5cd21743e49ffe820c5684755, type: 3}
+  hitboxPrefab: {fileID: 8800500147524966897, guid: ad6625e6758394e6089e112e56eb3d5e, type: 3}
+  leftHitboxSpawnpoint: {fileID: 381393442}
+  rightHitboxSpawnpoint: {fileID: 537738919}
 --- !u!4 &1150363173
 Transform:
   m_ObjectHideFlags: 0
@@ -6443,7 +6514,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 50}
+  m_LocalScale: {x: 1, y: 12.318, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1510453919}
@@ -7003,7 +7074,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1825025610}
   - component: {fileID: 1825025611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7535,9 +7606,9 @@ GameObject:
   - component: {fileID: 2098230597}
   - component: {fileID: 2098230594}
   - component: {fileID: 2098230599}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7551,12 +7622,14 @@ Transform:
   m_GameObject: {fileID: 2098230590}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.29, y: 1.81, z: 0}
+  m_LocalPosition: {x: -2.22, y: 1.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 109698636}
   - {fileID: 1825025610}
+  - {fileID: 381393442}
+  - {fileID: 537738919}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &2098230594
@@ -7799,7 +7872,7 @@ SceneRoots:
   - {fileID: 1510453919}
   - {fileID: 392963781}
   - {fileID: 1150363173}
-  - {fileID: 4177925139195706469}
   - {fileID: 417954952}
+  - {fileID: 4177925139195706469}
   - {fileID: 613787932}
   - {fileID: 649368693}
