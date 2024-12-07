@@ -73,16 +73,19 @@ public class PlayerAttackState : State<Player>
             case AttackType.Attack1:
                 currentAttackDuration = RunnerObject.playerData.attack1Duration;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack1);
+                RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
                 RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack1Damage);
                 break;
             case AttackType.Attack2:
                 currentAttackDuration = RunnerObject.playerData.attack2Duration;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack2);
+                RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
                 RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack2Damage);
                 break;
             case AttackType.Attack3:
                 currentAttackDuration = RunnerObject.playerData.attack3Duration;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack3);
+                RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
                 RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack3Damage);
                 break;
         }

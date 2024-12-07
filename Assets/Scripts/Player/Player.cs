@@ -22,6 +22,7 @@ public class Player : StateMachine<Player>
 
     // These variables propagate input to the states
     [HideInInspector] public Vector2 movementInput;
+    [HideInInspector] public Vector2 lookInput;
     [HideInInspector] public bool rollInputDown; // Follows convention of Input.GetKeyDown: Only true on first frame of input
     [HideInInspector] public bool attackInputDown;
 
@@ -44,6 +45,7 @@ public class Player : StateMachine<Player>
         input.MovementEvent += HandleMove;
         input.RollEvent += HandleRoll;
         input.AttackEvent += HandleAttack;
+        input.LookEvent += HandleLook;
     }
 
     private void OnDisable()
@@ -51,6 +53,7 @@ public class Player : StateMachine<Player>
         input.MovementEvent -= HandleMove;
         input.RollEvent -= HandleRoll;
         input.AttackEvent -= HandleAttack;
+        input.LookEvent -= HandleLook;
     }
 
     protected override void Update()
@@ -109,6 +112,20 @@ public class Player : StateMachine<Player>
     private void HandleAttack()
     {
         attackInputDown = true;
-    }
+    }  
     
+    private void HandleLook(Vector2 lookInput) {
+        this.lookInput = lookInput;
+    }
+
+    // ---------- Debugging ---------- //
+
+    private void DebugDrawLookInput() {
+        UnityEngine.Debug.DrawLine(
+            transform.position,
+            transform.position + 5f*new Vector3(lookInput.x, 0, lookInput.y),
+            Color.blue,
+            .05f
+        );
+    }
 }

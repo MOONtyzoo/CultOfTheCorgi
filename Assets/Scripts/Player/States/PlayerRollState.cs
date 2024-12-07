@@ -19,21 +19,9 @@ public class PlayerRollState : State<Player>
         elapsedTime = 0f;
         RunnerObject.SetAnimation(Player.AnimationName.PlayerRoll);
         rollDirection = parent.movementInput;
-
+        
         if (!debug) return;
-        DrawDebugLine();
-    }
-
-    public void DrawDebugLine() {
-        Vector3 startingPos = RunnerObject.transform.position;
-        float distanceTraveled = RunnerObject.playerData.rollSpeed * RunnerObject.playerData.rollDuration;
-        Vector3 endingPos = startingPos + distanceTraveled * new Vector3(rollDirection.x, 0, rollDirection.y);
-        UnityEngine.Debug.DrawLine(
-            startingPos,
-            endingPos,
-            Color.red,
-            .2f
-        );
+        DebugDrawRollLine();
     }
 
     public override void Tick(float deltaTime)
@@ -53,5 +41,17 @@ public class PlayerRollState : State<Player>
         {
             RunnerObject.SetState(typeof(PlayerIdleState));
         }
+    }
+
+    public void DebugDrawRollLine() {
+        Vector3 startingPos = RunnerObject.transform.position;
+        float distanceTraveled = RunnerObject.playerData.rollSpeed * RunnerObject.playerData.rollDuration;
+        Vector3 endingPos = startingPos + distanceTraveled * new Vector3(rollDirection.x, 0, rollDirection.y);
+        UnityEngine.Debug.DrawLine(
+            startingPos,
+            endingPos,
+            Color.red,
+            .2f
+        );
     }
 }
