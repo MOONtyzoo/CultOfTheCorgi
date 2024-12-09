@@ -21,8 +21,8 @@ Shader "Unlit/SpriteEffects"
     {
         Tags { "Queue"="Transparent" } // Transparent meshes are rendered after opaque meshes
         Blend SrcAlpha OneMinusSrcAlpha // Blend source and destination colors based on transparency
-        ZTest Off // If ZTest is on the shader will override Unity's sorting layer for some reason
-        LOD 100 // ???
+        //ZTest Off // If ZTest is on the shader will override Unity's sorting layer for some reason
+        Cull Off // Disable backfacing culling so that sprite can be flipped
 
         Pass
         {
