@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(HealthSystem))]
@@ -13,6 +14,7 @@ public class WolfEnemy : MonoBehaviour
     private HealthSystem healthSystem;
     private new Rigidbody rigidbody;
     private Player player;
+    private PauseMenuUI pauseMenuUI;
 
     private state currentState = state.Idle;
     private enum state {
@@ -20,7 +22,8 @@ public class WolfEnemy : MonoBehaviour
         Following,
         Knockback,
         Stunned,
-        Attacking
+        Attacking,
+        Paused
     }
 
     [SerializeField] private float detectionRadius;
@@ -33,9 +36,11 @@ public class WolfEnemy : MonoBehaviour
 
     [SerializeField] private float stunDuration;
 
+    
     private void Awake() {
         healthSystem = GetComponent<HealthSystem>();
         rigidbody = GetComponent<Rigidbody>();
+        pauseMenuUI = FindObjectOfType<PauseMenuUI>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -43,7 +48,16 @@ public class WolfEnemy : MonoBehaviour
         healthSystem.OnHealthDepleted.AddListener(Die);
         healthSystem.OnDamaged.AddListener(OnHit);
     }
-
+    
+    private void DisableEnemyMovement()
+    {
+        rigidbody.velocity = Vector3.zero;
+        if (!pauseMenuUI.isPaused)
+        {
+            currentState = state.Idle;
+        }
+    }
+    
     private void Update() {
         if (currentState == state.Following) {
             FollowPlayer();
@@ -51,6 +65,11 @@ public class WolfEnemy : MonoBehaviour
 
         if (currentState == state.Idle) {
             rigidbody.velocity = Vector3.zero;
+        }
+
+        if (currentState == state.Paused)
+        {
+            DisableEnemyMovement();
         }
 
         UpdateState();
@@ -68,6 +87,11 @@ public class WolfEnemy : MonoBehaviour
             if (GetDistanceToPlayer() > disengageRadius) {
                 currentState = state.Idle;
             }
+        }
+
+        if (pauseMenuUI.isPaused)
+        {
+            currentState = state.Paused;
         }
     }
 

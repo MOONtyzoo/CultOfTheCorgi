@@ -16,7 +16,7 @@ public class PauseMenuUI : MonoBehaviour
 
    private Button defaultSelectedButton;
 
-   private bool isPaused = false;
+   public bool isPaused { get; private set; }
 
    private void Awake()
    {
@@ -58,6 +58,7 @@ public class PauseMenuUI : MonoBehaviour
       isPaused = true;
       ShowPauseScreen();
       SelectDefaultButton();
+      DisableEnemyMovement();
    }
    
    private void Resume() {
@@ -80,5 +81,10 @@ public class PauseMenuUI : MonoBehaviour
 
    private void SelectDefaultButton() {
       eventSystem.SetSelectedGameObject(defaultSelectedButton.gameObject);
+   }
+
+   private void DisableEnemyMovement()
+   {
+      //pause the enemy prefabs
    }
 }

@@ -20,6 +20,10 @@ public class StartMenuUI : MonoBehaviour
     [SerializeField] private CanvasGroup controlsPanel;
 
     [SerializeField] private Button controlsBackButton;
+    [SerializeField] private Button controlsKeyboardLayoutButton;
+    [SerializeField] private Button controlsGamepadLayoutButton;
+    [SerializeField] private GameObject controlsGamepad;
+    [SerializeField] private GameObject controlsKeyboard;
 
     enum Submenu {
         Main,
@@ -51,6 +55,21 @@ public class StartMenuUI : MonoBehaviour
         exitButton.onClick.AddListener(() => Application.Quit());
 
         controlsBackButton.onClick.AddListener(() => SwitchToSubmenu(Submenu.Main));
+        controlsKeyboardLayoutButton.onClick.AddListener(ShowKeyboardLayout);
+        controlsGamepadLayoutButton.onClick.AddListener(ShowGamepadLayout);
+        
+    }
+
+    private void ShowKeyboardLayout()
+    {
+        controlsGamepad.gameObject.SetActive(false);
+        controlsKeyboard.gameObject.SetActive(true);
+    }
+
+    private void ShowGamepadLayout()
+    {
+        controlsGamepad.gameObject.SetActive(true);
+        controlsKeyboard.gameObject.SetActive(false);
     }
 
     private void SwitchToSubmenu(Submenu newSubmenu) {

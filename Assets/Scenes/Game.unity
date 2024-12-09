@@ -12490,6 +12490,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1318964697537874863, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 766408299}
     - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_Name
       value: WolfEnemy
