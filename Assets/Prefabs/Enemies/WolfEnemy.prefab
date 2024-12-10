@@ -33,7 +33,7 @@ Transform:
   m_GameObject: {fileID: 4863447402825861755}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.85, y: 2.1670003, z: -3.17}
+  m_LocalPosition: {x: 0, y: 1.78, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -132,7 +132,7 @@ Rigidbody:
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -156,14 +156,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectionRadius: 15
-  disengageRadius: 20
-  attackRadius: 1.5
-  disengageAttackRadius: 5
   moveSpeed: 6
+  disengageRadius: 20
+  attackRadius: 5
+  disengageAttackRadius: 8
+  hitboxSpawnPoint: {fileID: 5302683101507480393}
+  attackChargeupDuration: 0.7
+  attackDashSpeed: 19
+  attackDashDuration: 0.35
+  attackCooldown: 1.8
   knockbackSpeed: 32
   knockbackDuration: 0.4
   stunDuration: 0.5
-  hitboxSpawnPoint: {fileID: 5302683101507480393}
 --- !u!114 &6098211115258020034
 MonoBehaviour:
   m_ObjectHideFlags: 0
