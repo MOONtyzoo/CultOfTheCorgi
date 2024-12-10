@@ -14,10 +14,10 @@ public class WolfEnemy : MonoBehaviour
     private HealthSystem healthSystem;
     private new Rigidbody rigidbody;
     private Player player;
-    private PauseMenuUI pauseMenuUI;
     private bool isRanged;
     private AttackHitbox attackHitbox;
     private SpriteRenderer enemySpriteRenderer;
+    private SpriteFlasher spriteFlasher;
 
     private state currentState = state.Idle;
     private enum state {
@@ -26,7 +26,6 @@ public class WolfEnemy : MonoBehaviour
         Knockback,
         Stunned,
         Attacking,
-        Paused
     }
 
     [SerializeField] private float detectionRadius;
@@ -48,10 +47,10 @@ public class WolfEnemy : MonoBehaviour
     private void Awake() {
         healthSystem = GetComponent<HealthSystem>();
         rigidbody = GetComponent<Rigidbody>();
-        pauseMenuUI = FindObjectOfType<PauseMenuUI>();
         attackHitbox = FindObjectOfType<AttackHitbox>();
         enemySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        spriteFlasher =  GetComponent<SpriteFlasher>();
 
         currentState = state.Following;
     }
@@ -59,15 +58,6 @@ public class WolfEnemy : MonoBehaviour
     private void Start() {
         healthSystem.OnHealthDepleted.AddListener(Die);
         healthSystem.OnDamaged.AddListener(OnHit);
-    }
-    
-    private void DisableEnemyMovement()
-    {
-        rigidbody.velocity = Vector3.zero;
-        if (!pauseMenuUI.isPaused)
-        {
-            currentState = state.Idle;
-        }
     }
     
     private void Update() {
@@ -79,18 +69,12 @@ public class WolfEnemy : MonoBehaviour
             rigidbody.velocity = Vector3.zero;
         }
 
-        if (currentState == state.Paused)
-        {
-            DisableEnemyMovement();
-        }
-
         if (currentState == state.Attacking)
         {
             rigidbody.velocity = Vector3.zero;
         }
 
         UpdateState();
-        //print(rigidbody.velocity);
     }
 
     private void UpdateState() {
@@ -111,16 +95,12 @@ public class WolfEnemy : MonoBehaviour
                 StartCoroutine(attackCoroutine());
             }
         }
-
-        if (pauseMenuUI.isPaused)
-        {
-            currentState = state.Paused;
-        }
     }
 
     private void OnHit() {
         currentState = state.Knockback;
         SoundManager.Instance.PlaySound(GameSoundsData.Sound.Impact, transform.position);
+        spriteFlasher.SingleFlash(0.35f);
         StartCoroutine(knockbackCoroutine());
     }
 

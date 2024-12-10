@@ -10247,6 +10247,18 @@ PrefabInstance:
       propertyPath: m_UpdateMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 906816610892490526, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 906816610892490526, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 906816610892490526, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3182759249191445751, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -10330,6 +10342,18 @@ PrefabInstance:
     - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_Text
       value: Start Screen
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8113208
       objectReference: {fileID: 0}
     - target: {fileID: 6114865342884957007, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -10746,7 +10770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8352941, g: 0.7882353, b: 0.69411767, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7176471}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11955,6 +11979,18 @@ PrefabInstance:
     - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_Text
       value: Resume
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.8113208
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062794788994537917, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8113208
       objectReference: {fileID: 0}
     - target: {fileID: 6114865342884957007, guid: 209a682fa10fd1e4f87344356e4207e5, type: 3}
       propertyPath: m_AnchorMax.x
