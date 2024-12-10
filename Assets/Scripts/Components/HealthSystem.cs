@@ -23,13 +23,13 @@ public class HealthSystem : MonoBehaviour
 
     public void Damage(int damageNum) {
         if (isInvulnerable) return;
-        OnDamaged.Invoke();
         SetHealth(health - damageNum);
+        OnDamaged.Invoke();
     }
 
     public void Heal(int healingNum) {
-        OnHealed.Invoke();
         SetHealth(health + healingNum);
+        OnHealed.Invoke();
     }
 
     public void SetHealth(int newHealth) {
