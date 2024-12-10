@@ -77,8 +77,8 @@ public class WolfEnemy : MonoBehaviour
 
         if (currentState == state.Attacking)
         {
-            int meleeOrRanged = UnityEngine.Random.Range(0, 2);
-            AttackPlayer(meleeOrRanged);
+            bool isMelee = UnityEngine.Random.value > 0.5f;
+            AttackPlayer(isMelee);
             currentState = state.Idle;
         }
 
@@ -118,12 +118,11 @@ public class WolfEnemy : MonoBehaviour
         }
     }
 
-    private void AttackPlayer(int meleeOrRanged)
+    private void AttackPlayer(bool isMelee)
     {
-        meleeOrRanged = 1;
-        if (meleeOrRanged == 1)
+        isMelee = true;
+        if (isMelee)
         {
-            //player.healthSystem.Damage(player.playerData.attackMeleeDamage);
             Debug.Log("Melee");
         }
         else
@@ -171,12 +170,6 @@ public class WolfEnemy : MonoBehaviour
 
     private void FollowPlayer() {
         rigidbody.velocity = moveSpeed * GetDirectionToPlayer();
-        /*
-         * check if the enemy will do a ranged attack
-         * if so, call attackplayer
-         * set current state to attacking
-         * otherwise continue following
-         */
     }
 
     private Vector3 GetDirectionToPlayer() {
