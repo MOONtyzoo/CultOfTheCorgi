@@ -35,6 +35,7 @@ public class StartMenuUI : MonoBehaviour
 
     void Awake()
     {
+//        ScoreManager.Instance.SetScore(0);
         InitializeDictionaries();
         SetupButtonClickedEvents();
         SwitchToSubmenu(Submenu.Main);
