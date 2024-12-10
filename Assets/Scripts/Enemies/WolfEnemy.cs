@@ -15,6 +15,7 @@ public class WolfEnemy : MonoBehaviour
     private new Rigidbody rigidbody;
     private Player player;
     private PauseMenuUI pauseMenuUI;
+    private bool isRanged;
 
     private state currentState = state.Idle;
     private enum state {
@@ -28,6 +29,8 @@ public class WolfEnemy : MonoBehaviour
 
     [SerializeField] private float detectionRadius;
     [SerializeField] private float disengageRadius;
+    [SerializeField] private float attackRadius;
+    [SerializeField] private float disengageAttackRadius;
 
     [SerializeField] private float moveSpeed;
 
@@ -72,8 +75,15 @@ public class WolfEnemy : MonoBehaviour
             DisableEnemyMovement();
         }
 
+        if (currentState == state.Attacking)
+        {
+            int meleeOrRanged = UnityEngine.Random.Range(0, 2);
+            AttackPlayer(meleeOrRanged);
+            currentState = state.Idle;
+        }
+
         UpdateState();
-        print(rigidbody.velocity);
+        //print(rigidbody.velocity);
     }
 
     private void UpdateState() {
@@ -87,11 +97,47 @@ public class WolfEnemy : MonoBehaviour
             if (GetDistanceToPlayer() > disengageRadius) {
                 currentState = state.Idle;
             }
+
+            if (GetDistanceToPlayer() < attackRadius)
+            {
+                StartCoroutine(attackCoroutine());
+            }
+        }
+
+        if (currentState == state.Attacking)
+        {
+            if (GetDistanceToPlayer() > disengageAttackRadius)
+            {
+                currentState = state.Following;
+            }
         }
 
         if (pauseMenuUI.isPaused)
         {
             currentState = state.Paused;
+        }
+    }
+
+    private void AttackPlayer(int meleeOrRanged)
+    {
+        meleeOrRanged = 1;
+        if (meleeOrRanged == 1)
+        {
+            //player.healthSystem.Damage(player.playerData.attackMeleeDamage);
+            Debug.Log("Melee");
+        }
+        else
+        {
+            //ranged attack player
+        }
+    }
+
+    private IEnumerator attackCoroutine()
+    {
+        yield return new WaitForSeconds(1f);
+        if (GetDistanceToPlayer() < attackRadius)
+        {
+            currentState = state.Attacking;
         }
     }
 
@@ -125,6 +171,12 @@ public class WolfEnemy : MonoBehaviour
 
     private void FollowPlayer() {
         rigidbody.velocity = moveSpeed * GetDirectionToPlayer();
+        /*
+         * check if the enemy will do a ranged attack
+         * if so, call attackplayer
+         * set current state to attacking
+         * otherwise continue following
+         */
     }
 
     private Vector3 GetDirectionToPlayer() {

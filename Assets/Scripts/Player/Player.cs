@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(HealthSystem))]
 public class Player : StateMachine<Player>
 {
     [SerializeField] public PlayerData playerData;
@@ -15,7 +16,7 @@ public class Player : StateMachine<Player>
     private Animator animator;
     private new Rigidbody rigidbody;
     
-
+    public HealthSystem healthSystem { get; private set; }
     public bool IsFacingRight { get; private set; }
     
 
@@ -29,6 +30,7 @@ public class Player : StateMachine<Player>
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
+        healthSystem = GetComponent<HealthSystem>();
 
         List<State<Player>> playerStates = new List<State<Player>>() {
             new PlayerIdleState(),

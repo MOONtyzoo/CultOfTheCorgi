@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectionRadius: 15
   disengageRadius: 20
+  attackRadius: 3
+  disengageAttackRadius: 5
   moveSpeed: 6
   knockbackSpeed: 32
   knockbackDuration: 0.4

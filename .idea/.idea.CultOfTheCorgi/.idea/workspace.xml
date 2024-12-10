@@ -6,8 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="4a9eb240-1046-4a48-be20-1fc7eb70fbe4" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.CultOfTheCorgi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.CultOfTheCorgi/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Hitboxes/PlayerAttackHitbox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Hitboxes/PlayerAttackHitbox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/GameOverScreen.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/GameOverScreen.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/PlayerData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameData/PlayerData.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameData/ScriptableObjectScripts/PlayerData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameData/ScriptableObjectScripts/PlayerData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/WolfEnemy.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/WolfEnemy.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemies/WolfEnemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemies/WolfEnemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/Player.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
