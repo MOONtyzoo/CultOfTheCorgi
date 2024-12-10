@@ -168,6 +168,7 @@ MonoBehaviour:
   knockbackSpeed: 32
   knockbackDuration: 0.4
   stunDuration: 0.5
+  deathParticles: {fileID: 9214279102963093552, guid: 89dded378ce654a79b9ee7ae1f555012, type: 3}
 --- !u!114 &6098211115258020034
 MonoBehaviour:
   m_ObjectHideFlags: 0

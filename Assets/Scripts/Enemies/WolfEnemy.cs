@@ -17,6 +17,8 @@ public class WolfEnemy : MonoBehaviour
     private bool isRanged;
     private AttackHitbox attackHitbox;
     private SpriteRenderer enemySpriteRenderer;
+
+    private SpriteEffectsPropertySetter spriteEffectsPropertySetter;
     private SpriteFlasher spriteFlasher;
 
     private Animator animator;
@@ -35,6 +37,7 @@ public class WolfEnemy : MonoBehaviour
         Knockback,
         Stunned,
         Attacking,
+        Death,
     }
 
     [Header("Idle State")]
@@ -61,6 +64,9 @@ public class WolfEnemy : MonoBehaviour
     [Space][Header("Stun State")]
     [SerializeField] private float stunDuration;
 
+    [Space][Header("Death State")]
+    [SerializeField] private GameObject deathParticles;
+
     private void Awake() {
         healthSystem = GetComponent<HealthSystem>();
         rigidbody = GetComponent<Rigidbody>();
@@ -68,13 +74,14 @@ public class WolfEnemy : MonoBehaviour
         enemySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         spriteFlasher =  GetComponent<SpriteFlasher>();
+
+        spriteEffectsPropertySetter = GetComponent<SpriteEffectsPropertySetter>();
         animator = GetComponent<Animator>();
 
         currentState = state.Following;
     }
 
     private void Start() {
-        healthSystem.OnHealthDepleted.AddListener(Die);
         healthSystem.OnDamaged.AddListener(OnHit);
     }
     
@@ -119,7 +126,11 @@ public class WolfEnemy : MonoBehaviour
         spriteFlasher.SingleFlash(0.35f);
         SetAnimation(AnimationName.wolfHurt);
         StopAllCoroutines();
-        StartCoroutine(knockbackCoroutine());
+        if (!healthSystem.IsHealthDepleted()) {
+            StartCoroutine(knockbackCoroutine());
+        } else {
+            StartCoroutine(deathCoroutine());
+        }
     }
 
     private IEnumerator attackCoroutine()
@@ -186,11 +197,32 @@ public class WolfEnemy : MonoBehaviour
         currentState = state.Idle;
     }
 
+    private IEnumerator deathCoroutine() {
+        spriteEffectsPropertySetter.SetSaturation(0);
+
+        float knockbackTimer = 0;
+        while (knockbackTimer < knockbackDuration) {
+            knockbackTimer += Time.deltaTime;
+
+            Vector3 knockbackDirection = -GetDirectionToPlayer();
+            float normalizedTime = knockbackTimer/knockbackDuration;
+            rigidbody.velocity = knockbackDirection * Mathf.Lerp(knockbackSpeed, 0.0f, normalizedTime);
+
+            yield return null;
+        }
+
+        currentState = state.Stunned;
+        yield return new WaitForSeconds(stunDuration);
+        Die();
+    }
+
     private void Die()
     {
         // Maybe play a death animation or particles or something
         Destroy(gameObject);
         player.addKill();
+        ParticleSystem particles = Instantiate(deathParticles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+        Destroy(particles.gameObject, particles.main.duration);
     }
 
     private void SetAnimation(AnimationName animation)
