@@ -197,6 +197,17 @@
                 },
                 {
                     "name": "",
+                    "id": "c4eea739-5e04-4cee-844e-e52f6f1894cb",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fbdb58ae-d3df-47b6-8f82-a5e01a4c3370",
                     "path": "<Mouse>/position",
                     "interactions": "",
