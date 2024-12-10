@@ -27,14 +27,13 @@ public class HitboxRecognition : MonoBehaviour
     {
             if (isPlayerHit && other.CompareTag("Enemy"))
             {
-                Debug.Log("Player Attack");
                 HealthSystem healthSystem = other.GetComponent<HealthSystem>();
                 healthSystem.Damage(damage);
+                ScoreFloaterManager.Instance.SpawnScoreFloater(other.transform, damage);
             }
 
             else if (!isPlayerHit && other.CompareTag("Player"))
             {
-                Debug.Log("Enemy attack");
                 player.healthSystem.Damage(damage);
             }
     }

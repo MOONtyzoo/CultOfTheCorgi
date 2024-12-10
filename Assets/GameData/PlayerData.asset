@@ -26,4 +26,4 @@ MonoBehaviour:
   attack3Duration: 0.525
   attack3Damage: 35
   attack3MovementPush: 26.3
-  attack3HitboxSpawnTime: 0.371
+  attack3HitboxSpawnTime: 0.281

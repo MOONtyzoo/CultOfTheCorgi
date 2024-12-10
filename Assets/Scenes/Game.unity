@@ -5480,7 +5480,6 @@ GameObject:
   m_Component:
   - component: {fileID: 196920719}
   - component: {fileID: 196920718}
-  - component: {fileID: 196920717}
   - component: {fileID: 196920720}
   m_Layer: 0
   m_Name: Main Camera
@@ -5489,14 +5488,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &196920717
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196920716}
-  m_Enabled: 1
 --- !u!20 &196920718
 Camera:
   m_ObjectHideFlags: 0
@@ -5507,7 +5498,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.07084592, g: 0.06586681, b: 0.10943389, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6405,13 +6396,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4a14e9dade5934af1a4db61814e74c4f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.52
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 0
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -6532,7 +6523,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.8207547, g: 0.53039336, b: 0.53039336, a: 1}
+  m_Color: {r: 0.751691, g: 0.758989, b: 0.7735849, a: 1}
   m_Intensity: 1.5
   m_Range: 50
   m_SpotAngle: 30
@@ -10878,6 +10869,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4610257859369122712, guid: 1f18a9a0ff751b345a4619e3cc841a5a, type: 3}
   m_PrefabInstance: {fileID: 1921857524}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1717107671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1717107673}
+  - component: {fileID: 1717107672}
+  m_Layer: 0
+  m_Name: ScoreFloaterManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1717107672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717107671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d145949ec6b6bb4188472d5ced6b5b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreFloaterPrefab: {fileID: 2426215505910993789, guid: 1d312bd8028f08a47b737d2c1c7990c5, type: 3}
+--- !u!4 &1717107673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717107671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1784802947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4610257859369122712, guid: 1f18a9a0ff751b345a4619e3cc841a5a, type: 3}
@@ -11221,7 +11257,7 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.764151, g: 0.65241194, b: 0.65241194, a: 1}
+  m_Color: {r: 0.6226415, g: 0.5721253, b: 0.5721253, a: 1}
   m_Intensity: 13.54
   m_Range: 10
   m_SpotAngle: 32
@@ -12281,6 +12317,7 @@ GameObject:
   - component: {fileID: 2098230597}
   - component: {fileID: 2098230594}
   - component: {fileID: 2098230599}
+  - component: {fileID: 2098230602}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -12477,6 +12514,14 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!81 &2098230602
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098230590}
+  m_Enabled: 1
 --- !u!1001 &2144342069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12783,6 +12828,7 @@ SceneRoots:
   - {fileID: 337221467}
   - {fileID: 989058188}
   - {fileID: 392963781}
+  - {fileID: 1717107673}
   - {fileID: 2098230592}
   - {fileID: 1510453919}
   - {fileID: 4177925139195706469}

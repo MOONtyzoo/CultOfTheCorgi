@@ -104,7 +104,7 @@ public class PlayerAttackState : State<Player>
                 currentAttackDuration = RunnerObject.playerData.attack3Duration;
                 currentAttackMovementPush = RunnerObject.playerData.attack3MovementPush;
                 currentAttackHitboxSpawnTime = RunnerObject.playerData.attack3HitboxSpawnTime;
-                currentAttackDamage = RunnerObject.playerData.attack2Damage;
+                currentAttackDamage = RunnerObject.playerData.attack3Damage;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack3);
                 break;
         }
