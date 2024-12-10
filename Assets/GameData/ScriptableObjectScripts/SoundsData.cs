@@ -8,6 +8,7 @@ public class GameSoundsData : ScriptableObject
     public enum Sound {
         Swipe,
         Impact,
+        PlayerHurt,
     }
 
     [SerializeField] private List<Sound_AudioClipsArray> sound_AudioClipsList;
