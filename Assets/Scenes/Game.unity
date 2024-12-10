@@ -5746,6 +5746,7 @@ GameObject:
   - component: {fileID: 208427400}
   - component: {fileID: 208427402}
   - component: {fileID: 208427401}
+  - component: {fileID: 208427403}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -5802,6 +5803,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &208427403
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208427399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1.5
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!4 &211261613 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6484047646738014927, guid: 0a3f16931664c6041b2bda189d4c4b64, type: 3}
@@ -6741,6 +6759,7 @@ GameObject:
   m_Component:
   - component: {fileID: 438369024}
   - component: {fileID: 438369023}
+  - component: {fileID: 438369025}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -6803,6 +6822,18 @@ Transform:
   - {fileID: 208427400}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 34.4, y: 0, z: 0}
+--- !u!114 &438369025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438369022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e2aea6cf15f15e4ab6352cd6dc0399b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &447671903 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6484047646738014927, guid: 0a3f16931664c6041b2bda189d4c4b64, type: 3}

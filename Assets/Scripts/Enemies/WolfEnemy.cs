@@ -115,6 +115,7 @@ public class WolfEnemy : MonoBehaviour
     private void OnHit() {
         currentState = state.Knockback;
         SoundManager.Instance.PlaySound(GameSoundsData.Sound.Impact, transform.position);
+        CinemachineCameraShake.Instance.ShakeCamera(1.0f, 0.15f);
         spriteFlasher.SingleFlash(0.35f);
         SetAnimation(AnimationName.wolfHurt);
         StopAllCoroutines();

@@ -79,6 +79,7 @@ public class Player : StateMachine<Player>
 
     private void OnHit() {
         SoundManager.Instance.PlaySound(GameSoundsData.Sound.PlayerHurt, transform.position);
+        CinemachineCameraShake.Instance.ShakeCamera(1.5f, 0.3f);
         StartCoroutine(OnHitCoroutine());
     }
 
