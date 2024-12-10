@@ -12398,6 +12398,8 @@ GameObject:
   - component: {fileID: 2098230594}
   - component: {fileID: 2098230599}
   - component: {fileID: 2098230602}
+  - component: {fileID: 2098230604}
+  - component: {fileID: 2098230603}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -12562,7 +12564,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a46cdb26d8bb4fb4ea0f0af307c57d6a, type: 2}
+  - {fileID: 2100000, guid: ddece9115d68a064abb23926134e8213, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12602,6 +12604,39 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098230590}
   m_Enabled: 1
+--- !u!114 &2098230603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098230590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c8c44599b92634c9353e60deb32e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!114 &2098230604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098230590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a10df34b6fbf1c46af70c3d5c5a0804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TintColor: {r: 1, g: 1, b: 1, a: 1}
+  TintAmount: 0
+  HueShift: 0
+  Saturation: 1
+  Brightness: 0
+  Opacity: 1
 --- !u!1001 &2144342069
 PrefabInstance:
   m_ObjectHideFlags: 0
