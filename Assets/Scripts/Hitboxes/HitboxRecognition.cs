@@ -7,6 +7,12 @@ public class HitboxRecognition : MonoBehaviour
 {
     private int damage = 0;
     private bool isPlayerHit;
+    private Player player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+    }
 
     public void SetDamage(int newDamage) {
         damage = newDamage;
@@ -19,19 +25,17 @@ public class HitboxRecognition : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
-        {
-            if (isPlayerHit)
+            if (isPlayerHit && other.CompareTag("Enemy"))
             {
+                Debug.Log("Player Attack");
                 HealthSystem healthSystem = other.GetComponent<HealthSystem>();
                 healthSystem.Damage(damage);
             }
 
-            if (!isPlayerHit)
+            else if (!isPlayerHit && other.CompareTag("Player"))
             {
                 Debug.Log("Enemy attack");
+                player.healthSystem.Damage(damage);
             }
-        }
-        
     }
 }

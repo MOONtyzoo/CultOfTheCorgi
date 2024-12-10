@@ -17,6 +17,7 @@ public class WolfEnemy : MonoBehaviour
     private PauseMenuUI pauseMenuUI;
     private bool isRanged;
     private AttackHitbox attackHitbox;
+    private SpriteRenderer enemySpriteRenderer;
 
     private state currentState = state.Idle;
     private enum state {
@@ -39,6 +40,9 @@ public class WolfEnemy : MonoBehaviour
     [SerializeField] private float knockbackDuration;
 
     [SerializeField] private float stunDuration;
+    [SerializeField] private GameObject hitboxSpawnPoint;
+
+    private int enemyAttackDamage = 1;
 
     
     private void Awake() {
@@ -46,6 +50,7 @@ public class WolfEnemy : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         pauseMenuUI = FindObjectOfType<PauseMenuUI>();
         attackHitbox = FindObjectOfType<AttackHitbox>();
+        enemySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -79,8 +84,7 @@ public class WolfEnemy : MonoBehaviour
 
         if (currentState == state.Attacking)
         {
-            attackHitbox.CreateHitBoxPrefab(player.playerData.attackMeleeDamage,false);
-            currentState = state.Idle;
+            rigidbody.velocity = Vector3.zero;
         }
 
         UpdateState();
@@ -102,6 +106,7 @@ public class WolfEnemy : MonoBehaviour
             if (GetDistanceToPlayer() < attackRadius)
             {
                 currentState = state.Attacking;
+                StartCoroutine(attackCoroutine());
             }
         }
 
@@ -114,6 +119,17 @@ public class WolfEnemy : MonoBehaviour
     private void OnHit() {
         currentState = state.Knockback;
         StartCoroutine(knockbackCoroutine());
+    }
+
+    private IEnumerator attackCoroutine()
+    {
+        attackHitbox.CreateHitBoxPrefab(enemyAttackDamage, false, hitboxSpawnPoint);
+        if (GetDistanceToPlayer() > disengageAttackRadius)
+        {
+            currentState = state.Following;
+        }
+        yield return new WaitForSeconds(2f);
+        currentState = state.Idle;
     }
     
     private IEnumerator knockbackCoroutine() {
@@ -141,6 +157,7 @@ public class WolfEnemy : MonoBehaviour
 
     private void FollowPlayer() {
         rigidbody.velocity = moveSpeed * GetDirectionToPlayer();
+        FlipSpriteToFaceDirection(GetDirectionToPlayer());
     }
 
     private Vector3 GetDirectionToPlayer() {
@@ -149,5 +166,11 @@ public class WolfEnemy : MonoBehaviour
 
     private float GetDistanceToPlayer() {
         return (player.transform.position - transform.position).magnitude;
+    }
+    
+    public void FlipSpriteToFaceDirection(Vector2 direction)
+    {
+        if (direction.x == 0) return;
+        enemySpriteRenderer.flipX = direction.x < 0f;
     }
 }

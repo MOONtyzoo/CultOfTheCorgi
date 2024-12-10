@@ -45,4 +45,3 @@ MonoBehaviour:
   attack2Damage: 25
   attack3Duration: 0.525
   attack3Damage: 35
-  attackMeleeDamage: 20

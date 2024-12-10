@@ -14,10 +14,9 @@ public class AttackHitbox : MonoBehaviour
 
     [Header("Enemy Prefabs"), Space] 
     [SerializeField] private GameObject enemyHitboxPrefab;
-    [SerializeField] private Transform enemyHitboxSpawnPoint;
     private GameObject currentEnemyHitboxInstance;
 
-    public void CreateHitBoxPrefab(int damage, bool isPlayer)
+    public void CreateHitBoxPrefab(int damage, bool isPlayer, GameObject enemyHitboxSpawnPoint = null)
     {
         if (isPlayer && currentPlayerHitboxInstance == null)
         {
@@ -40,9 +39,10 @@ public class AttackHitbox : MonoBehaviour
 
         else if (currentEnemyHitboxInstance == null && isPlayer == false)
         {
-            currentEnemyHitboxInstance = Instantiate(enemyHitboxPrefab, enemyHitboxSpawnPoint);
+            currentEnemyHitboxInstance = Instantiate(enemyHitboxPrefab, enemyHitboxSpawnPoint.transform);
             hitboxRecognition = currentEnemyHitboxInstance.GetComponent<HitboxRecognition>();
             hitboxRecognition.SetIsPlayerHit(false);
+            hitboxRecognition.SetDamage(damage);
             Destroy(currentEnemyHitboxInstance, 0.1f);
         }
     }
