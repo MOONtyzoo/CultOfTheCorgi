@@ -24,6 +24,7 @@ public class WolfEnemy : MonoBehaviour
         wolfIdle,
         wolfAttack,
         wolfRun,
+        wolfHurt,
     }
 
     private state currentState = state.Idle;
@@ -114,6 +115,7 @@ public class WolfEnemy : MonoBehaviour
         currentState = state.Knockback;
         SoundManager.Instance.PlaySound(GameSoundsData.Sound.Impact, transform.position);
         spriteFlasher.SingleFlash(0.35f);
+        SetAnimation(AnimationName.wolfHurt);
         StopAllCoroutines();
         StartCoroutine(knockbackCoroutine());
     }
