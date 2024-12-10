@@ -17,7 +17,9 @@ public class Player : StateMachine<Player>
     
 
     public bool IsFacingRight { get; private set; }
-    
+
+    private int killCount;
+
 
     // These variables propagate input to the states
     [HideInInspector] public Vector2 movementInput;
@@ -37,6 +39,8 @@ public class Player : StateMachine<Player>
             new PlayerAttackState()
         };
         InitializeStateMachine(playerStates);
+
+        killCount = 0;
     }
 
     private void OnEnable()
@@ -126,5 +130,10 @@ public class Player : StateMachine<Player>
             Color.blue,
             .05f
         );
+    }
+
+    internal void addKill()
+    {
+        killCount++;
     }
 }
