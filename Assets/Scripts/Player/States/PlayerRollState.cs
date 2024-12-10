@@ -31,14 +31,14 @@ public class PlayerRollState : State<Player>
 
     public override void FixedTick(float fixedDeltaTime)
     {
-        float normalizedRollDuration = elapsedTime/RunnerObject.playerData.rollDuration;
-        float rollWeight = RunnerObject.playerData.rollWeightCurve.Evaluate(normalizedRollDuration);
+        float rollProgressNormalized = elapsedTime/RunnerObject.playerData.rollDuration;
 
         Vector2 rollVelocity = rollDirection*RunnerObject.playerData.rollSpeed;
         Vector2 moveVelocity = RunnerObject.movementInput*RunnerObject.playerData.movementSpeed;
 
         // This smoothly transitions from roll movement to normal movement
-        RunnerObject.SetVelocity(rollWeight*rollVelocity + (1.0f-rollWeight)*moveVelocity);
+        Vector2 newVelocity = Vector2.Lerp(rollVelocity, moveVelocity, rollProgressNormalized);
+        RunnerObject.SetVelocity(newVelocity);
     }
 
     public override void HandleStateTransitions()
