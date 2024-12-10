@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1318964697537874863}
   - component: {fileID: 6098211115258020034}
   - component: {fileID: 6308451387500984696}
+  - component: {fileID: 3160548866524784030}
+  - component: {fileID: 6254731336770011902}
   m_Layer: 6
   m_Name: WolfEnemy
   m_TagString: Enemy
@@ -59,7 +61,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ddece9115d68a064abb23926134e8213, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,6 +210,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3160548866524784030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863447402825861755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5c8c44599b92634c9353e60deb32e6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flashColor:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!114 &6254731336770011902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863447402825861755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a10df34b6fbf1c46af70c3d5c5a0804, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TintColor: {r: 1, g: 1, b: 1, a: 1}
+  TintAmount: 0
+  HueShift: 0
+  Saturation: 1
+  Brightness: 0
+  Opacity: 1
 --- !u!1 &5302683101507480393
 GameObject:
   m_ObjectHideFlags: 0
