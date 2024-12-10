@@ -162,7 +162,7 @@ MonoBehaviour:
   disengageAttackRadius: 8
   hitboxSpawnPoint: {fileID: 5302683101507480393}
   attackChargeupDuration: 0.7
-  attackDashSpeed: 19
+  attackDashSpeed: 23
   attackDashDuration: 0.35
   attackCooldown: 1.8
   knockbackSpeed: 32

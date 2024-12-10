@@ -22,6 +22,7 @@ public class WolfEnemy : MonoBehaviour
     private Animator animator;
     private enum AnimationName {
         wolfIdle,
+        wolfAttackCharging,
         wolfAttack,
         wolfRun,
         wolfHurt,
@@ -124,7 +125,7 @@ public class WolfEnemy : MonoBehaviour
     {
         // Charge up the attack
         rigidbody.velocity = Vector3.zero;
-        SetAnimation(AnimationName.wolfIdle);
+        SetAnimation(AnimationName.wolfAttackCharging);
 
         float attackChargeupTimer = 0;
         while (attackChargeupTimer < attackChargeupDuration) {
@@ -142,6 +143,7 @@ public class WolfEnemy : MonoBehaviour
 
         // Charge has completed, now attack
         Vector3 attackDirection  = GetDirectionToPlayer();
+        FlipSpriteToFaceDirection(GetDirectionToPlayer());
 
         float attackTimer = 0;
         bool hasAttacked = false;
@@ -151,10 +153,9 @@ public class WolfEnemy : MonoBehaviour
             float normalizedTime = attackTimer/attackDashDuration;
             rigidbody.velocity = attackDirection * Mathf.Lerp(attackDashSpeed, 0.0f, normalizedTime);
 
-            if (!hasAttacked && normalizedTime > 0.2f) {
+            if (!hasAttacked && normalizedTime > 0.7f) {
                 hasAttacked = true;
                 SetAnimation(AnimationName.wolfAttack);
-                FlipSpriteToFaceDirection(GetDirectionToPlayer());
                 attackHitbox.CreateHitBoxPrefab(enemyAttackDamage, false, hitboxSpawnPoint);
             }
             
