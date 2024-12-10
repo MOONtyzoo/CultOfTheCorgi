@@ -6281,6 +6281,55 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4610257859369122712, guid: 1f18a9a0ff751b345a4619e3cc841a5a, type: 3}
   m_PrefabInstance: {fileID: 1805840170}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &337221465
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 337221467}
+  - component: {fileID: 337221466}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &337221466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337221465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d586148a253037a45a2217a683eeed39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectPrefab: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
+  minimumSecondsUntilCreate: 3
+  maximumSecondsUntilCreate: 5
+  spawnDistanceFromPlayer: 15
+  maximumEnemyCount: 50
+--- !u!4 &337221467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337221465}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.73, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &347174573 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6484047646738014927, guid: 0a3f16931664c6041b2bda189d4c4b64, type: 3}
@@ -12793,3 +12842,4 @@ SceneRoots:
   - {fileID: 613787932}
   - {fileID: 649368693}
   - {fileID: 1220686475}
+  - {fileID: 337221467}

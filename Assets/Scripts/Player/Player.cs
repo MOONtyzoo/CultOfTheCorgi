@@ -18,7 +18,9 @@ public class Player : StateMachine<Player>
     
     public HealthSystem healthSystem { get; private set; }
     public bool IsFacingRight { get; private set; }
-    
+
+    private int killCount;
+
 
     // These variables propagate input to the states
     [HideInInspector] public Vector2 movementInput;
@@ -39,6 +41,8 @@ public class Player : StateMachine<Player>
             new PlayerAttackState()
         };
         InitializeStateMachine(playerStates);
+
+        killCount = 0;
     }
 
     private void OnEnable()
@@ -96,6 +100,16 @@ public class Player : StateMachine<Player>
     public void SetAnimation(AnimationName animation)
     {
         animator.Play(animation.ToString());
+    }
+
+    public void addKill()
+    {
+        killCount++;
+    }
+
+    public int getKills()
+    {
+        return killCount;
     }
 
     // ---------- Event Listeners ---------- //

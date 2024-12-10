@@ -52,6 +52,8 @@ public class WolfEnemy : MonoBehaviour
         attackHitbox = FindObjectOfType<AttackHitbox>();
         enemySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        currentState = state.Following;
     }
 
     private void Start() {
@@ -153,6 +155,7 @@ public class WolfEnemy : MonoBehaviour
     {
         // Maybe play a death animation or particles or something
         Destroy(gameObject);
+        player.addKill();
     }
 
     private void FollowPlayer() {
