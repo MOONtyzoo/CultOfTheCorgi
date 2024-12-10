@@ -63,8 +63,9 @@ public class PlayerAttackState : State<Player>
         RunnerObject.SetVelocity(newVelocity);
 
         if (currentAttackElapsedTime > currentAttackHitboxSpawnTime && !hitboxSpawned) {
-            RunnerObject.hitbox.CreateHitBoxPrefab(currentAttackDamage, true);
             hitboxSpawned = true;
+            RunnerObject.hitbox.CreateHitBoxPrefab(currentAttackDamage, true);
+            SoundManager.Instance.PlaySound(GameSoundsData.Sound.Swipe, RunnerObject.transform.position);
         }
     }
 

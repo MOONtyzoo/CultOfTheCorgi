@@ -120,6 +120,7 @@ public class WolfEnemy : MonoBehaviour
 
     private void OnHit() {
         currentState = state.Knockback;
+        SoundManager.Instance.PlaySound(GameSoundsData.Sound.Impact, transform.position);
         StartCoroutine(knockbackCoroutine());
     }
 

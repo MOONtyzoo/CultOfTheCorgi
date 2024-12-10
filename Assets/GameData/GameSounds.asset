@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0fc1e301426c8a42acf219f1264cf39, type: 3}
   m_Name: GameSounds
   m_EditorClassIdentifier: 
-  sound_AudioClipsList: []
+  sound_AudioClipsList:
+  - sound: 0
+    audioClips:
+    - {fileID: 8300000, guid: bcaf11704b877714899acccc0ac27a6d, type: 3}
+    - {fileID: 8300000, guid: 89835c5f5bb9a7c42820f4930598a980, type: 3}
+    - {fileID: 8300000, guid: e24142a14988f0a479aa064ae1bfc836, type: 3}
+  - sound: 1
+    audioClips:
+    - {fileID: 8300000, guid: 6d4ceb800d2d763408de4db9f071d2de, type: 3}
+    - {fileID: 8300000, guid: 88405e2fdc377704c8a53a81a94ab0fc, type: 3}
+    - {fileID: 8300000, guid: 317ff8e5478338643a92bf7e8ea88eba, type: 3}
