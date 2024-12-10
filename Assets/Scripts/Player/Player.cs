@@ -100,6 +100,16 @@ public class Player : StateMachine<Player>
         animator.Play(animation.ToString());
     }
 
+    public void addKill()
+    {
+        killCount++;
+    }
+
+    public int getKills()
+    {
+        return killCount;
+    }
+
     // ---------- Event Listeners ---------- //
 
     private void HandleRoll()
@@ -130,10 +140,5 @@ public class Player : StateMachine<Player>
             Color.blue,
             .05f
         );
-    }
-
-    internal void addKill()
-    {
-        killCount++;
     }
 }
