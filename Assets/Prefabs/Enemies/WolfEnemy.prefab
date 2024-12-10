@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 453528938056452942}
   - component: {fileID: 1318964697537874863}
   - component: {fileID: 6098211115258020034}
+  - component: {fileID: 6308451387500984696}
   m_Layer: 6
   m_Name: WolfEnemy
   m_TagString: Enemy
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fcc24653ee8981b4289fbf553ad3e070, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 83ab64a2ec613944daa8b1c9e5746c69, type: 3}
   m_Color: {r: 0.5740477, g: 0.59520197, b: 0.8113208, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -186,6 +187,27 @@ MonoBehaviour:
   OnHealthDepleted:
     m_PersistentCalls:
       m_Calls: []
+--- !u!95 &6308451387500984696
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863447402825861755}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6f0372772fd78594d8b06dc896cc37b6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5302683101507480393
 GameObject:
   m_ObjectHideFlags: 0
