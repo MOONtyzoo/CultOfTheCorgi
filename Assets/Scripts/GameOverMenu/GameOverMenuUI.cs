@@ -9,10 +9,12 @@ public class GameOverMenuUI : MonoBehaviour
 {
     [SerializeField] private Button startMenu;
     [SerializeField] private EventSystem eventSystem;
+    [SerializeField] private Text scoreText;
     private void Awake()
     {
         SetupDefaultButtonEvent();
         SetupButtonClickedEvents();
+        scoreText.text = "Enemies Defeated: " + ScoreManager.Instance.GetScore();
     }
 
     private void SetupButtonClickedEvents()

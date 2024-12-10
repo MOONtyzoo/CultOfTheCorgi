@@ -45,6 +45,7 @@ public class Player : StateMachine<Player>
             new PlayerAttackState()
         };
         InitializeStateMachine(playerStates);
+        healthSystem.OnHealthDepleted.AddListener(PlayerDead);
 
         killCount = 0;
     }
@@ -85,6 +86,17 @@ public class Player : StateMachine<Player>
         healthSystem.SetInvulnerability(true);
         yield return new WaitForSeconds(3);
         healthSystem.SetInvulnerability(false);
+    }
+
+    private void PlayerDead()
+    {
+        ScoreManager.Instance.SetScore(killCount);
+        LoadGameOver();
+    }
+
+    private void LoadGameOver()
+    {
+        SceneLoader.Load(SceneLoader.Scene.GameOverScreen);
     }
 
     public void FlipSpriteToFaceDirection(Vector2 direction)
