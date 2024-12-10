@@ -5,16 +5,21 @@ using UnityEngine;
 public class AttackHitbox : MonoBehaviour
 {
     [SerializeField] Player player;
-    [Space]
-    [Header("Prefabs")]
+    private HitboxRecognition hitboxRecognition;
+    [Header("Player Prefabs"), Space]
     [SerializeField] GameObject hitboxPrefab;
     [SerializeField] Transform leftHitboxSpawnpoint;
     [SerializeField] Transform rightHitboxSpawnpoint;
-    private GameObject currentHitboxInstance;
+    private GameObject currentPlayerHitboxInstance;
 
-    public void CreateHitBoxPrefab(int damage)
+    [Header("Enemy Prefabs"), Space] 
+    [SerializeField] private GameObject enemyHitboxPrefab;
+    [SerializeField] private Transform enemyHitboxSpawnPoint;
+    private GameObject currentEnemyHitboxInstance;
+
+    public void CreateHitBoxPrefab(int damage, bool isPlayer)
     {
-        if (currentHitboxInstance == null)
+        if (isPlayer && currentPlayerHitboxInstance == null)
         {
             Transform hitboxSpawnPoint;
             if (player.IsFacingRight)
@@ -26,11 +31,20 @@ public class AttackHitbox : MonoBehaviour
                 hitboxSpawnPoint = leftHitboxSpawnpoint;
             }
 
-            currentHitboxInstance = Instantiate(hitboxPrefab, hitboxSpawnPoint);
-            HitboxRecognition hitboxRecognition = currentHitboxInstance.GetComponent<HitboxRecognition>();
+            currentPlayerHitboxInstance = Instantiate(hitboxPrefab, hitboxSpawnPoint);
+            hitboxRecognition = currentPlayerHitboxInstance.GetComponent<HitboxRecognition>();
+            hitboxRecognition.SetIsPlayerHit(true);
             hitboxRecognition.SetDamage(damage);
-            Destroy(currentHitboxInstance, 0.1f);
+            Destroy(currentPlayerHitboxInstance, 0.1f);
+        }
+
+        else if (currentEnemyHitboxInstance == null && isPlayer == false)
+        {
+            currentEnemyHitboxInstance = Instantiate(enemyHitboxPrefab, enemyHitboxSpawnPoint);
+            hitboxRecognition = currentEnemyHitboxInstance.GetComponent<HitboxRecognition>();
+            hitboxRecognition.SetIsPlayerHit(false);
+            Destroy(currentEnemyHitboxInstance, 0.1f);
         }
     }
-    
+
 }

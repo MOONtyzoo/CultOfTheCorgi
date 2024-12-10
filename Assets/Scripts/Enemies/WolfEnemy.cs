@@ -16,6 +16,7 @@ public class WolfEnemy : MonoBehaviour
     private Player player;
     private PauseMenuUI pauseMenuUI;
     private bool isRanged;
+    private AttackHitbox attackHitbox;
 
     private state currentState = state.Idle;
     private enum state {
@@ -44,6 +45,7 @@ public class WolfEnemy : MonoBehaviour
         healthSystem = GetComponent<HealthSystem>();
         rigidbody = GetComponent<Rigidbody>();
         pauseMenuUI = FindObjectOfType<PauseMenuUI>();
+        attackHitbox = FindObjectOfType<AttackHitbox>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
 
@@ -77,8 +79,7 @@ public class WolfEnemy : MonoBehaviour
 
         if (currentState == state.Attacking)
         {
-            bool isMelee = UnityEngine.Random.value > 0.5f;
-            AttackPlayer(isMelee);
+            attackHitbox.CreateHitBoxPrefab(player.playerData.attackMeleeDamage,false);
             currentState = state.Idle;
         }
 
@@ -100,43 +101,13 @@ public class WolfEnemy : MonoBehaviour
 
             if (GetDistanceToPlayer() < attackRadius)
             {
-                StartCoroutine(attackCoroutine());
-            }
-        }
-
-        if (currentState == state.Attacking)
-        {
-            if (GetDistanceToPlayer() > disengageAttackRadius)
-            {
-                currentState = state.Following;
+                currentState = state.Attacking;
             }
         }
 
         if (pauseMenuUI.isPaused)
         {
             currentState = state.Paused;
-        }
-    }
-
-    private void AttackPlayer(bool isMelee)
-    {
-        isMelee = true;
-        if (isMelee)
-        {
-            Debug.Log("Melee");
-        }
-        else
-        {
-            //ranged attack player
-        }
-    }
-
-    private IEnumerator attackCoroutine()
-    {
-        yield return new WaitForSeconds(1f);
-        if (GetDistanceToPlayer() < attackRadius)
-        {
-            currentState = state.Attacking;
         }
     }
 

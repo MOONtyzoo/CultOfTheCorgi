@@ -7268,7 +7268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4893640227351409623, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7574,7 +7574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4893640227351409623, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8969,6 +8969,8 @@ MonoBehaviour:
   hitboxPrefab: {fileID: 8800500147524966897, guid: ad6625e6758394e6089e112e56eb3d5e, type: 3}
   leftHitboxSpawnpoint: {fileID: 381393442}
   rightHitboxSpawnpoint: {fileID: 537738919}
+  enemyHitboxPrefab: {fileID: 8881727261062622279, guid: f9e0a9b7bdbc6449ab622ab7014080db, type: 3}
+  enemyHitboxSpawnPoint: {fileID: 4177925139195706470}
 --- !u!4 &1150363173
 Transform:
   m_ObjectHideFlags: 0
@@ -12661,10 +12663,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1318964697537874863, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
-      propertyPath: pauseMenuUI
-      value: 
-      objectReference: {fileID: 766408299}
     - target: {fileID: 4863447402825861755, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
       propertyPath: m_Name
       value: WolfEnemy
@@ -12714,6 +12712,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
+--- !u!4 &4177925139195706470 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 896374208932446225, guid: 5ff0a14276cb9c2428340d4bb2084a34, type: 3}
+  m_PrefabInstance: {fileID: 4177925139195706469}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5448198742945245618
 PrefabInstance:
   m_ObjectHideFlags: 0

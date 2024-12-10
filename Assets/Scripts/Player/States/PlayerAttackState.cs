@@ -78,7 +78,7 @@ public class PlayerAttackState : State<Player>
                 {
                     RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
                 }
-                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack1Damage);
+                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack1Damage,true);
                 break;
             case AttackType.Attack2:
                 currentAttackDuration = RunnerObject.playerData.attack2Duration;
@@ -87,7 +87,7 @@ public class PlayerAttackState : State<Player>
                 {
                     RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
                 }
-                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack2Damage);
+                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack2Damage,true);
                 break;
             case AttackType.Attack3:
                 currentAttackDuration = RunnerObject.playerData.attack3Duration;
@@ -96,7 +96,7 @@ public class PlayerAttackState : State<Player>
                 {
                     RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
                 }
-                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack3Damage);
+                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack3Damage,true);
                 break;
         }
         currentAttack = newAttack;
