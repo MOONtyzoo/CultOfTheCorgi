@@ -35,19 +35,13 @@ public class SpriteEffectsPropertySetter : MonoBehaviour
 
     // OnValidate is called in the editor after the component is edited
     void OnValidate() {
+        renderer = GetComponent<Renderer>();
         UpdateShaderProperties();
     }
 
     void UpdateShaderProperties()
     {
-        Renderer renderer = GetComponent<Renderer>();
-
-        if (propertyBlock == null) {
-            propertyBlock = new MaterialPropertyBlock();
-        }
-        if (renderer.HasPropertyBlock()) {
-            renderer.GetPropertyBlock(propertyBlock);
-        }
+        GetRendererPropertyBlock();
 
         propertyBlock.SetColor("_TintColor", TintColor);
         propertyBlock.SetFloat("_TintAmount", TintAmount);
@@ -69,49 +63,58 @@ public class SpriteEffectsPropertySetter : MonoBehaviour
 
     public void SetTintColor(Color newTintColor) {
         TintColor = newTintColor;
-        if (propertyBlock != null) {
-            propertyBlock.SetColor("_TintColor", TintColor);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
+        
+        GetRendererPropertyBlock();
+        propertyBlock.SetColor("_TintColor", TintColor);
+        renderer.SetPropertyBlock(propertyBlock);
     }
 
     public void SetTintAmount(float newTintAmount) {
         TintAmount = newTintAmount;
-        if (propertyBlock != null) {
-            propertyBlock.SetFloat("_TintAmount", TintAmount);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
+
+        GetRendererPropertyBlock();
+        propertyBlock.SetFloat("_TintAmount", TintAmount);
+        renderer.SetPropertyBlock(propertyBlock);
     }
 
     public void SetHueShift(float newHueShift) {
         HueShift = newHueShift;
-        if (propertyBlock != null) {
-            propertyBlock.SetFloat("_HueShift", HueShift);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
+
+        GetRendererPropertyBlock();
+        propertyBlock.SetFloat("_HueShift", HueShift);
+        renderer.SetPropertyBlock(propertyBlock);
     }
 
     public void SetSaturation(float newSaturation) {
         Saturation = newSaturation;
-        if (propertyBlock != null) {
-            propertyBlock.SetFloat("_Saturation", Saturation);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
+
+        GetRendererPropertyBlock();
+        propertyBlock.SetFloat("_Saturation", Saturation);
+        renderer.SetPropertyBlock(propertyBlock);
     }
 
     public void SetBrightness(float newBrightness) {
         Brightness = newBrightness;
-        if (propertyBlock != null) {
-            propertyBlock.SetFloat("_Brightness", Brightness);
-            renderer.SetPropertyBlock(propertyBlock);
-        }
+
+        GetRendererPropertyBlock();
+        propertyBlock.SetFloat("_Brightness", Brightness);
+        renderer.SetPropertyBlock(propertyBlock);
     }
 
     public void SetOpacity(float newOpacity) {
         Opacity = newOpacity;
-        if (propertyBlock != null) {
-            propertyBlock.SetFloat("_Opacity", Opacity);
-            renderer.SetPropertyBlock(propertyBlock);
+
+        GetRendererPropertyBlock();
+        propertyBlock.SetFloat("_Opacity", Opacity);
+        renderer.SetPropertyBlock(propertyBlock);
+    }
+
+    private void GetRendererPropertyBlock() {
+        if (propertyBlock == null) {
+            propertyBlock = new MaterialPropertyBlock();
+        }
+        if (renderer.HasPropertyBlock()) {
+            renderer.GetPropertyBlock(propertyBlock);
         }
     }
 }

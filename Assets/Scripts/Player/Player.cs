@@ -15,11 +15,14 @@ public class Player : StateMachine<Player>
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     private new Rigidbody rigidbody;
+    private SpriteFlasher spriteFlasher;
     
     public HealthSystem healthSystem { get; private set; }
+
     public bool IsFacingRight { get; private set; }
 
     private int killCount;
+
 
 
     // These variables propagate input to the states
@@ -33,6 +36,7 @@ public class Player : StateMachine<Player>
         animator = GetComponent<Animator>();
         rigidbody = GetComponent<Rigidbody>();
         healthSystem = GetComponent<HealthSystem>();
+        spriteFlasher = GetComponent<SpriteFlasher>();
 
         List<State<Player>> playerStates = new List<State<Player>>() {
             new PlayerIdleState(),
@@ -43,6 +47,10 @@ public class Player : StateMachine<Player>
         InitializeStateMachine(playerStates);
 
         killCount = 0;
+    }
+
+    private void Start() {
+        healthSystem.OnDamaged.AddListener(OnHit);
     }
 
     private void OnEnable()
@@ -66,6 +74,17 @@ public class Player : StateMachine<Player>
         base.Update();
         rollInputDown = false;
         attackInputDown = false;
+    }
+
+    private void OnHit() {
+        StartCoroutine(OnHitCoroutine());
+    }
+
+    private IEnumerator OnHitCoroutine() {
+        spriteFlasher.MultiFlash(15, 3);
+        healthSystem.SetInvulnerability(true);
+        yield return new WaitForSeconds(3);
+        healthSystem.SetInvulnerability(false);
     }
 
     public void FlipSpriteToFaceDirection(Vector2 direction)

@@ -9,6 +9,7 @@ public class HealthSystem : MonoBehaviour
 {
     private int health = 100;
     [SerializeField] private int maxHealth = 100;
+    private bool isInvulnerable = false;
 
     [Space]
     public UnityEvent OnHealthChanged;
@@ -21,6 +22,7 @@ public class HealthSystem : MonoBehaviour
     }
 
     public void Damage(int damageNum) {
+        if (isInvulnerable) return;
         OnDamaged.Invoke();
         SetHealth(health - damageNum);
     }
@@ -64,5 +66,9 @@ public class HealthSystem : MonoBehaviour
 
     public override string ToString() {
         return health.ToString() + "/" + maxHealth.ToString();
+    }
+
+    public void SetInvulnerability(bool isInvulnerable) {
+        this.isInvulnerable = isInvulnerable;
     }
 }
