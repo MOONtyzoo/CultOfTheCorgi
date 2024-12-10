@@ -18,7 +18,10 @@ public class PlayerAttackState : State<Player>
     private float currentAttackElapsedTime;
     private float currentAttackDuration;
     private float currentAttackMovementPush;
+    private int currentAttackDamage;
+    private float currentAttackHitboxSpawnTime;
     private Vector2 attackDirection;
+    private bool hitboxSpawned;
 
     private bool hasPlayerInputAttack;
 
@@ -58,6 +61,11 @@ public class PlayerAttackState : State<Player>
         Vector2 newVelocity = attackPushVelocity + moveVelocity;
 
         RunnerObject.SetVelocity(newVelocity);
+
+        if (currentAttackElapsedTime > currentAttackHitboxSpawnTime && !hitboxSpawned) {
+            RunnerObject.hitbox.CreateHitBoxPrefab(currentAttackDamage);
+            hitboxSpawned = true;
+        }
     }
 
     public override void HandleStateTransitions()
@@ -71,32 +79,33 @@ public class PlayerAttackState : State<Player>
     private void SetCurrentAttack(AttackType newAttack) {
         currentAttackElapsedTime = 0;
         hasPlayerInputAttack = false;
+        hitboxSpawned = false;
+
+        attackDirection = RunnerObject.lookInput;
+        RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
 
         switch(newAttack) {
             case AttackType.Attack1:
                 currentAttackDuration = RunnerObject.playerData.attack1Duration;
                 currentAttackMovementPush = RunnerObject.playerData.attack1MovementPush;
+                currentAttackHitboxSpawnTime = RunnerObject.playerData.attack1HitboxSpawnTime;
+                currentAttackDamage = RunnerObject.playerData.attack1Damage;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack1);
-                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack1Damage);
                 break;
             case AttackType.Attack2:
                 currentAttackDuration = RunnerObject.playerData.attack2Duration;
                 currentAttackMovementPush = RunnerObject.playerData.attack2MovementPush;
+                currentAttackHitboxSpawnTime = RunnerObject.playerData.attack2HitboxSpawnTime;
+                currentAttackDamage = RunnerObject.playerData.attack2Damage;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack2);
-                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack2Damage);
                 break;
             case AttackType.Attack3:
                 currentAttackDuration = RunnerObject.playerData.attack3Duration;
                 currentAttackMovementPush = RunnerObject.playerData.attack3MovementPush;
+                currentAttackHitboxSpawnTime = RunnerObject.playerData.attack3HitboxSpawnTime;
+                currentAttackDamage = RunnerObject.playerData.attack2Damage;
                 RunnerObject.SetAnimation(Player.AnimationName.PlayerAttack3);
-                RunnerObject.hitbox.CreateHitBoxPrefab(RunnerObject.playerData.attack3Damage);
                 break;
-        }
-
-        attackDirection = RunnerObject.lookInput;
-        if (Input.GetMouseButtonDown(0))
-        {
-            RunnerObject.FlipSpriteToFaceDirection(RunnerObject.lookInput);
         }
 
         currentAttack = newAttack;

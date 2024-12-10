@@ -15,33 +15,15 @@ MonoBehaviour:
   movementSpeed: 12
   rollSpeed: 32.4
   rollDuration: 0.816
-  rollWeightCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0.01
-      value: 1.0113101
-      inSlope: -0.50074744
-      outSlope: -0.50074744
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.08450704
-    - serializedVersion: 3
-      time: 0.98999995
-      value: 0.01131013
-      inSlope: -1.5179138
-      outSlope: -1.5179138
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.07159619
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   attack1Duration: 0.35
   attack1Damage: 15
+  attack1MovementPush: 17.2
+  attack1HitboxSpawnTime: 0
   attack2Duration: 0.35
   attack2Damage: 25
+  attack2MovementPush: 11.8
+  attack2HitboxSpawnTime: 0
   attack3Duration: 0.525
   attack3Damage: 35
+  attack3MovementPush: 26.3
+  attack3HitboxSpawnTime: 0.371
