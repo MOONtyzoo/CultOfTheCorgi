@@ -126,6 +126,7 @@ public class WolfEnemy : MonoBehaviour
         // Charge up the attack
         rigidbody.velocity = Vector3.zero;
         SetAnimation(AnimationName.wolfAttackCharging);
+        spriteFlasher.ChargeUpFlash(attackChargeupDuration, 0.28f);
 
         float attackChargeupTimer = 0;
         while (attackChargeupTimer < attackChargeupDuration) {

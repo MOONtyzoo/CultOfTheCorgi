@@ -31,6 +31,18 @@ public class SpriteFlasher : MonoBehaviour
         hitFlashSequence.Append(hitFlashTween);
     }
 
+    public void ChargeUpFlash(float duration, float flashOpacity) {
+        hitFlashSequence?.Kill();
+        hitFlashSequence = DOTween.Sequence();
+
+        spriteEffectsPropertySetter?.SetTintColor(flashColor);
+        spriteEffectsPropertySetter?.SetTintAmount(0.0f);
+
+        Tween hitFlashTween = DOTween.To((x) => {spriteEffectsPropertySetter?.SetTintAmount(x);}, 0.0f, flashOpacity, duration);
+        hitFlashSequence.Append(hitFlashTween);
+        hitFlashTween.onComplete += () => spriteEffectsPropertySetter?.SetTintAmount(0.0f);
+    }
+
     public void MultiFlash(float flashAmount, float duration) {
         hitFlashSequence?.Kill();
         hitFlashSequence = DOTween.Sequence();
