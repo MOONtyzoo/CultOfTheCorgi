@@ -14,7 +14,13 @@ public class GameOverMenuUI : MonoBehaviour
     {
         SetupDefaultButtonEvent();
         SetupButtonClickedEvents();
-        scoreText.text = "Enemies Defeated: " + ScoreManager.Instance.GetScore();
+
+        if (ScoreManager.Instance.GetScore() < 10)
+            scoreText.text = "0" + ScoreManager.Instance.GetScore();
+        else
+            scoreText.text = "" + ScoreManager.Instance.GetScore();
+        
+        scoreText.text = "- <color=maroon><b>" + scoreText.text + "</b></color> -";
     }
 
     private void SetupButtonClickedEvents()
