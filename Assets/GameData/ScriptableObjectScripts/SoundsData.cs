@@ -20,9 +20,28 @@ public class GameSoundsData : ScriptableObject
 
     public Dictionary<Sound, AudioClip[]> soundAudioClips = new Dictionary<Sound, AudioClip[]>();
 
+    // The function below is the one that breaks the game when you build it. I think the internal soundAudioClips dictionary
+    // that this ScriptableObject generates doesn't load properly when the game builds or something.
+
+    // This made it so that any code that tried to play a sound through the SoundManager would break,
+    // (Ex: the reason why enemies did not get knocked back is because it tried to play a sound on a previous line)
+
+    // public AudioClip GetRandomSoundClip(Sound sound) {
+    //     AudioClip[] audioClips = soundAudioClips[sound];
+    //     return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+    // }
+
+    // Using this new method is a temporary solution since it is way more inefficient
+    // Instead of a dictionary it just loops through the sounds array and finds the matching one
+
     public AudioClip GetRandomSoundClip(Sound sound) {
-        AudioClip[] audioClips = soundAudioClips[sound];
-        return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+        foreach(Sound_AudioClipsArray sound_AudioClipArray in sound_AudioClipsList) {
+            if (sound_AudioClipArray.sound == sound) {
+                AudioClip[] audioClips = sound_AudioClipArray.audioClips;
+                return audioClips[UnityEngine.Random.Range(0, audioClips.Length)];
+            }
+        }
+        return null;
     }
 
     private void OnValidate() {

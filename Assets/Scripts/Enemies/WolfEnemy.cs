@@ -1,18 +1,11 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(HealthSystem))]
 public class WolfEnemy : MonoBehaviour
 {
     private HealthSystem healthSystem;
-    private new Rigidbody rigidbody;
+    private Rigidbody rigidbody;
     private Player player;
     private bool isRanged;
     private AttackHitbox attackHitbox;
@@ -74,15 +67,12 @@ public class WolfEnemy : MonoBehaviour
         enemySpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         spriteFlasher =  GetComponent<SpriteFlasher>();
-
         spriteEffectsPropertySetter = GetComponent<SpriteEffectsPropertySetter>();
         animator = GetComponent<Animator>();
 
-        currentState = state.Following;
-    }
-
-    private void Start() {
         healthSystem.OnDamaged.AddListener(OnHit);
+
+        currentState = state.Following;
     }
     
     private void Update() {

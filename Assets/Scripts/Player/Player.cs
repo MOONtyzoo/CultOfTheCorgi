@@ -14,7 +14,7 @@ public class Player : StateMachine<Player>
 
     private SpriteRenderer spriteRenderer;
     private Animator animator;
-    private new Rigidbody rigidbody;
+    private Rigidbody rigidbody;
     private SpriteFlasher spriteFlasher;
     
     public HealthSystem healthSystem { get; private set; }
@@ -45,13 +45,10 @@ public class Player : StateMachine<Player>
             new PlayerAttackState()
         };
         InitializeStateMachine(playerStates);
+        healthSystem.OnDamaged.AddListener(OnHit);
         healthSystem.OnHealthDepleted.AddListener(PlayerDead);
 
         killCount = 0;
-    }
-
-    private void Start() {
-        healthSystem.OnDamaged.AddListener(OnHit);
     }
 
     private void OnEnable()

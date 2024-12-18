@@ -28,7 +28,7 @@ public class SpriteEffectsPropertySetter : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float Opacity = 1f;
 
-    new private Renderer renderer;
+    private Renderer renderer;
 
     //The material property block we pass to the GPU
     private MaterialPropertyBlock propertyBlock;
